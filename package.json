@@ -1,0 +1,42 @@
+{
+  "name": "ramon-form-sdude",
+  "private": false,
+  "version": "0.0.1",
+  "description": "SDUDE: Schema-Driven UI Dynamic Engine. A robust, ultra-fast form orchestration engine for React 19. Transform complex logic arrays into fully-synchronized, high-performance dynamic forms with zero boilerplate.",
+  "type": "module",
+  "main": "./dist/ramon-form-sdude.umd.js",
+  "module": "./dist/ramon-form-sdude.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/ramon-form-sdude.es.js",
+      "require": "./dist/ramon-form-sdude.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "ramon-vanilla": "github:DevRamon83/ramon-vanilla"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "vite": "^7.3.1"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
+  }
+}

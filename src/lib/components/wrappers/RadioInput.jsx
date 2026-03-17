@@ -1,0 +1,23 @@
+import InputGroups from "../core/InputGroups";
+import ErrorInvalidCall from "./ErrorInvalidCall";
+import RenderGate from "./RenderGate";
+import { useMemo } from "react";
+
+/*
+We prioritize useMemo over React.memo because, in ultra-intensive scenarios 
+with 3000+ controlled inputs, the overhead of React's high-level reconciliation 
+is slower than our targeted reference-based memoization.
+*/
+function RadioInput({ dataField, isAsync }) {
+  return useMemo(() => {
+    const component = <InputGroups dataField={dataField} />;
+
+    return !dataField ? (
+      <ErrorInvalidCall isAsync={isAsync} />
+    ) : (
+      <RenderGate component={component} dataField={dataField} />
+    );
+  }, [dataField?.state?.value]);
+}
+
+export default RadioInput;
