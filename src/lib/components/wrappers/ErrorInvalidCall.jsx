@@ -9,7 +9,6 @@ export default function ErrorInvalidCall({ isAsync, dataField }) {
     marginBottom: "20px",
   };
 
-  console.log("data ", dataField);
   const buttonStyle = {
     backgroundColor: "black",
     display: "inline",

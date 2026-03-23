@@ -19,15 +19,20 @@ export default function Hook() {
         // Contains the following input types: select
       </span>
       {"\n"}
-      <span className="PRIvar">textareas</span>&nbsp;{" "}
+      <span className="PRIvar">textareas</span>,&nbsp;
       <span className="PRIparentheses">
         // Contains the following input types: textarea
+      </span>
+      {"\n"}
+      <span className="PRIvar">resets</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span className="PRIparentheses">
+        // Contains the functions resetAll and resetOne
       </span>
       {"\n"}
       <span className="PRIparentheses">{"}"}</span>&nbsp; =&nbsp;
       <span className="PRIfunc">useRamonForms</span>
       <span className="PRIparentheses">(</span>
-      <span className="PRIvar">configArray</span>
+      <span className="PRIvar">objConfig</span>
       <span className="PRIparentheses">)</span>
     </p>
   );

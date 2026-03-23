@@ -17,10 +17,11 @@ import { eventsArray } from "../../constants/eventsArray";
  * finalized just before being projected to the React View layer.
  */
 
-const customLogicHandler = (funcsMap, indexes, SSOT, configObj, innerKey) => {
+const customLogicHandler = (map, indexes, SSOT, obj, key, handler, setter) => {
   for (let i = 0; i < indexes.length; i++) {
     const targetId = SSOT[indexes[i]];
-    configObj[targetId].handlers[innerKey] = funcsMap[targetId];
+    const func = map[targetId];
+    obj[targetId].handlers[key] = handler(func, key, setter);
   }
 };
 
@@ -32,35 +33,47 @@ const mapNIndexFinder = (caller, customLogic) => {
   return { map, indexes };
 };
 
-const customLogicHandlerInterface = (caller, logicObj, configObj) => {
+const customLogicInterface = (handler, caller, logicObj, configObj, setter) => {
   const { map, indexes } = mapNIndexFinder(caller, logicObj);
   if (indexes.length === 0) return;
-  customLogicHandler(map, indexes, logicObj.SSOT, configObj, caller);
+  customLogicHandler(
+    map,
+    indexes,
+    logicObj.SSOT,
+    configObj,
+    caller,
+    handler,
+    setter,
+  );
 };
 
-export const customLogicDispatcher = (customLogic, configs) => {
+export const customLogicDispatcher = (logic, configs, handler, states) => {
   const { fields, textareas, groups, selects } = configs;
-  const { fieldsLogic, textareasLogic, groupsLogic, selectsLogic } =
-    customLogic;
+  const { fieldsLogic, textareasLogic, groupsLogic, selectsLogic } = logic;
+
+  const setF = states.setFieldsState;
+  const setG = states.setGroupsState;
+  const setS = states.setSelectsState;
+  const setT = states.setTextareasState;
 
   eventsArray.forEach((event) => {
     isObjValid(fieldsLogic) &&
-      customLogicHandlerInterface(event, fieldsLogic, fields);
+      customLogicInterface(handler, event, fieldsLogic, fields, setF);
     isObjValid(textareasLogic) &&
-      customLogicHandlerInterface(event, textareasLogic, textareas);
+      customLogicInterface(handler, event, textareasLogic, textareas, setT);
     isObjValid(groupsLogic) &&
-      customLogicHandlerInterface(event, groupsLogic, groups);
+      customLogicInterface(handler, event, groupsLogic, groups, setG);
     isObjValid(selectsLogic) &&
-      customLogicHandlerInterface(event, selectsLogic, selects);
+      customLogicInterface(handler, event, selectsLogic, selects, setS);
   });
 };
 
 export const executeOnChangeLogic = (id, map, value) => {
   const isBoolean = typeof map[id] === "boolean";
-
   if (!map || Object.keys(map).length === 0 || isBoolean) return;
   const myFunc = map[id];
-  myFunc && myFunc(value);
+  const result = myFunc && myFunc(value);
+  return result;
 };
 
 const populateOC = (SSOT, configObj, stateIndexes, handler) => {

@@ -23,11 +23,19 @@ export default function AsyncFetchData() {
       <span className="PRIparentheses">]</span>
       {"\n"}
       &nbsp; &nbsp;<span className="PRIfunc">setData</span>
-      <span className="PRIparentheses">(</span>
-      <span className="PRIfunc">[</span>
-      <span className="PRIvar">fetchedConfigs</span>
-      <span className="PRIfunc">]</span>
-      <span className="PRIparentheses">)</span>
+      <span className="PRIdeclare">(</span>
+      <span className="PRIparentheses">{"{"}</span>
+      {"\n"}
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="PRIsub">configArray</span>
+      :&nbsp;
+      <span className="PRIvar">fetchedConfigs</span>,{"\n"}
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="PRIsub">isAsync</span>
+      :&nbsp;
+      <span className="PRIdeclare">true</span>,{"\n"}
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="PRIsub">i18n</span>:&nbsp;
+      <span className="PRIdeclare">false</span>,{"\n"}
+      &nbsp;&nbsp;&nbsp;<span className="PRIparentheses">{"}"}</span>
+      <span className="PRIdeclare">)</span>
       {"\n"}
       <span className="PRIparentheses"> {"}"}</span>,&nbsp;
       <span className="PRIfunc">[</span>

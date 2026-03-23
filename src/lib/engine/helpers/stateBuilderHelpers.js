@@ -4,12 +4,27 @@
  * to generate the base state structure for React.
  */
 
-const commonInitialization = (SSOT, indexes, initial) => {
+const keysPopulator = (controlled, obj, initial, eventName) => {
+  if (!obj.returns) obj.returns = {};
+
+  if (controlled) {
+    obj.value = initial;
+  }
+  obj.returns[eventName] = null;
+};
+
+const commonInitialization = (logicObj, initial) => {
   const obj = {};
-  indexes.forEach((value) => {
-    const key = SSOT[value];
-    obj[key] = initial;
-  });
+  const { SSOT } = logicObj;
+
+  for (let i = 0; i < SSOT.length; i++) {
+    const currentSSOT = SSOT[i];
+    obj[currentSSOT] = {};
+    keysPopulator(true, obj[currentSSOT], initial, "onChange");
+    keysPopulator(false, obj[currentSSOT], initial, "onBlur");
+    keysPopulator(false, obj[currentSSOT], initial, "onFocus");
+    keysPopulator(false, obj[currentSSOT], initial, "onKeyDown");
+  }
 
   return obj;
 };
@@ -30,10 +45,24 @@ const initializeGroups = (logicObj, initial) => {
 
   SSOT.forEach((key, index) => {
     if (types[index] === "radio") {
-      obj[key] = initial;
+      obj[key] = {
+        value: initial,
+        returns: {
+          onChange: null,
+          onFocus: null,
+          onKeyDown: null,
+          onBlur: null,
+        },
+      };
     } else {
       const states = logicObj[key].options.ids;
-      obj[key] = { ...initializeCheckbox(states, false) };
+      obj[key] = { value: { ...initializeCheckbox(states, false) } };
+      obj[key].returns = {
+        onChange: null,
+        onFocus: null,
+        onKeyDown: null,
+        onBlur: null,
+      };
     }
   });
 
@@ -41,13 +70,12 @@ const initializeGroups = (logicObj, initial) => {
 };
 
 export const buildDispatcher = (logicObj, caller, initial) => {
-  if (!logicObj) return {};
+  const obj = {};
+  if (!logicObj) return obj;
+
   if (caller === "groups") {
     return initializeGroups(logicObj, initial);
   } else {
-    const { SSOT, onChangeIndexes } = logicObj;
-    return onChangeIndexes.length > 0
-      ? commonInitialization(SSOT, onChangeIndexes, initial)
-      : {};
+    return commonInitialization(logicObj, initial);
   }
 };

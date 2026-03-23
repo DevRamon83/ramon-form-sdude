@@ -23,6 +23,7 @@ export const configDispatcher = (customLogic) => {
     };
   }
 
+  const resets = {};
   const fields = customLogic.fieldsLogic
     ? buildConfig(customLogic.fieldsLogic, "field")
     : {};
@@ -30,13 +31,14 @@ export const configDispatcher = (customLogic) => {
     ? buildConfig(customLogic.groupsLogic, "group")
     : {};
   const selects = customLogic.selectsLogic
-    ? buildConfig(customLogic.selectsLogic, "selects")
+    ? buildConfig(customLogic.selectsLogic, "select")
     : {};
   const textareas = customLogic.textareasLogic
     ? buildConfig(customLogic.textareasLogic, "textarea")
     : {};
 
   return {
+    resets,
     fields,
     groups,
     selects,

@@ -2,7 +2,7 @@ import FileSystem from "./FileSystem";
 import Configurations from "./Configurations";
 import Form from "./snippets/Form";
 import Hook from "./snippets/Hook";
-import Import from "./snippets/Import";
+import ConfigArray from "./snippets/ConfigArray";
 import FakeCheckbox from "./snippets/FakeCheckbox";
 import FakeCheckboxRender from "./snippets/FakeCheckboxRender";
 import ConditionalForm from "./snippets/ConditionalForm";
@@ -48,13 +48,46 @@ export default function Sync() {
         the "configs" folder (the order in which you insert them is irrelevant);
         for example:
       </p>
-      <Import />
+      <p className="ramon__ide">
+        <ConfigArray />
+      </p>
       <p className="ramon__p">
-        {" "}
-        and then pass the configuration object to the hook:
+        <strong>Be precise with your configuration keys</strong>; the engine
+        expects exactly configArray, isAsync, and i18n. If you misspell
+        configArray, the system will catch the error and show you a generic
+        alert.{" "}
+        <u>
+          However, since the other two keys are optional, I can't help you if
+          you get them wrong
+        </u>
+        : the orchestrator will simply ignore the misspelled key and fall back
+        to its default internal values without warning.
+        <br />
+        Having clarified this, all you have to do is pass objConfig as a
+        parameter to the hook:
       </p>
       <Hook />
-      <p className="ramon__p"></p>
+      <p className="ramon__p">
+        To use the reset functions, you'll need to wrap them in a handler to
+        integrate them with your UI.
+        <br />
+        The resetAll function can be called as-is and requires no parameters.
+        <br />
+        In contrast, the resetOne function requires a single string parameter:
+        the id of the specific field you wish to reset.
+        <br />I recommend attaching a ref to the entire form (as shown in the
+        following example).{" "}
+        <strong>
+          <u>
+            This way, if your form contains a mix of controlled and uncontrolled
+            inputs, you can achieve a complete reset
+          </u>
+        </strong>
+        :<br />
+        use the native browser function formRef.current.reset() to clear
+        uncontrolled inputs, while the resetAll() function will handle resetting
+        the React states.
+      </p>
       <h2 className="ramon__h2">Rendering the inputs</h2>
       <p className="ramon__p">
         To render the inputs, simply import the relevant components from the
@@ -66,11 +99,36 @@ export default function Sync() {
       </p>
       <Form />
       <p className="ramon__p">
-        You are not required to attach a ref to the entire form. If you don't
-        need it, don't do it. Usually, attaching a ref to the form is simply the
-        best and fastest way to access all its constituent inputs. As for the
-        rest, the rules to follow are very straightforward, and I will summarize
-        them for you below:
+        <u>
+          You are not required to attach a ref to the entire form, but I highly
+          recommend doing so for two main reasons
+        </u>
+        : mass resets and the submission process. Regarding resets even though
+        you could handle every single input as controlled without any lag, it is
+        still preferable to use a granular approach, employing controlled inputs
+        only where strictly necessary.
+        <br />
+        In this scenario,{" "}
+        <strong>
+          you will have a mix of controlled and uncontrolled inputs
+        </strong>
+        ; by using a form ref, you can easily reset the entire form using the
+        browser's native Reset API. Regarding submission{" "}
+        <strong>
+          it is best practice to re-validate your data from scratch before
+          sending it
+        </strong>
+        , rather than relying solely on real-time error tracking (which is meant
+        only for providing immediate user feedback). While you could easily
+        write a recursive function to access the returns values from your
+        states,{" "}
+        <u>
+          my advice is to use the browser API to collect the data and repeat the
+          entire validation process before the final submission
+        </u>
+        .<br />
+        As for the rest, the rules to follow are very straightforward, and I
+        will summarize them for you below:
       </p>
       <p className="ramon__p">
         1. <strong>The "dataField" prop is mandatory and binding</strong>; you
@@ -137,7 +195,7 @@ export default function Sync() {
         to the form (formRef.current.reset()) or just go with a good old, brutal
         page refresh.
       </p>
-      <h2 className="ramon__h2">Accessing state values</h2>
+      <h2 className="ramon__h2">Accessing state and returns values</h2>
       <p className="ramon__p">
         As for accessing the values of controlled components, simply call them
         using standard JS syntax; for example, to conditionally show certain
@@ -145,28 +203,40 @@ export default function Sync() {
       </p>
       <ConditionalForm />
       <p className="ramon__p">
+        Similarly, to access the return values of your validation functions, you
+        can use "<strong>fields.username.returns.onChange</strong>" (or onBlur,
+        or any other event you are working with).
+        <br />
         If you need functions to handle the supported events (onChange, onBlur,
         onFocus, and onKeyDown), you just have to map them in the configuration
-        object; they will automatically receive the updated state:
+        object; they will automatically receive the updated state value, along
+        with any specific return value you have defined within your validation
+        logic:
       </p>
       <Validation />
       <p className="ramon__p">
-        or whatever other validation logic you might need.{" "}
+        or whatever other validation logic you might need.
+        <br />
+        One thing to keep in mind:{" "}
+        <u>
+          the configArray should remain static during the component's lifecycle
+          to preserve the deterministic alignment of the engine
+        </u>
+        .<br />
         <strong>
-          <u>
-            One thing you must be careful about is to never dynamically
-            manipulate the configuration array, the one I called configArray in
-            my examples
-          </u>
+          The only exceptions are when you need to fetch configuration objects
+          asynchronously or handle i18n (language changes)
         </strong>
-        . The only case where configArray can be managed dynamically is if you
-        need to fetch configuration objects; in that case, you'll just need to
-        follow a couple of extra small steps, nothing complicated. So, what’s
-        next? If you want one last piece of advice, do this: in the JSX where
-        you are rendering the starter kit, right above that line, create your
-        first form. Play around with it, make mistakes, and copy the
-        configuration objects you find in the console. This way, you’ll see
-        firsthand how simple it is to design a form with ramon-form-sdude.
+        . For these scenarios, you'll find a dedicated, simple workflow
+        explained in the specific tabs of this documentation.The only case where
+        configArray can be managed dynamically is if you need to fetch
+        configuration objects; in that case, you'll just need to follow a couple
+        of extra small steps, nothing complicated. So, what’s next? If you want
+        one last piece of advice, do this: in the JSX where you are rendering
+        the starter kit, right above that line, create your first form. Play
+        around with it, make mistakes, and copy the configuration objects you
+        find in the console. This way, you’ll see firsthand how simple it is to
+        design a form with ramon-form-sdude.
       </p>
       <p className="ramon__p"></p>
     </>

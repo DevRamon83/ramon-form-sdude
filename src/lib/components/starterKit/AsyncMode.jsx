@@ -25,14 +25,9 @@ export default function AsyncMode() {
         . Setting up the asynchronous mode is very simple and takes just a few
         steps, which I will summarize below:
       </p>
-      <p className="ramon__p">
-        1. Create a React state and initialize it with an empty array
-      </p>
+      <p className="ramon__p">1. Create a React state and initialize it:</p>
       <AsyncSetState />
-      <p className="ramon__p">
-        2. Pass the state to the hook as the first parameter and a value of true
-        as the second parameter to notify it that you are in asynchronous mode.
-      </p>
+      <p className="ramon__p">2. Pass the state to the hook:</p>
       <AsyncHookParams />
       <p className="ramon__p">
         3. Execute the effect or the logic needed to populate the state with

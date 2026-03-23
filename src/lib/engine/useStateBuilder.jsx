@@ -6,7 +6,7 @@ export const useStateBuilder = (customLogic) => {
     ? customLogic
     : {};
   const initial = "";
-  const [fieldsState, setFieldState] = useState(() =>
+  const [fieldsState, setFieldsState] = useState(() =>
     buildDispatcher(fieldsLogic, "fields", initial),
   );
 
@@ -24,7 +24,7 @@ export const useStateBuilder = (customLogic) => {
 
   return {
     fieldsState,
-    setFieldState,
+    setFieldsState,
     groupsState,
     setGroupsState,
     selectsState,

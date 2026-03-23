@@ -1,9 +1,10 @@
-import { useMemo, useRef } from "react";
+import { useRef } from "react";
 import { parseConfig } from "../parsers/parseConfig";
 import { configDispatcher } from "../builders/configDispatcher";
 import { useStateBuilder } from "./useStateBuilder";
 import { handlersBinder } from "./handlersBinder";
 import { statesMirroring } from "./helpers/ramonHelpers";
+import { reConfigI18n } from "../builders/reConfigI18n";
 
 /* 
  * PERFORMANCE-FIRST ENGINE: Handling 2000+ controlled inputs @ 60fps.
@@ -39,47 +40,55 @@ Should the user manipulate the length of 'configArray' during the
 app lifecycle, and only then, data and pointer alignment would be lost.
 */
 
-const useRamonForms = (configArray = [], isAsync) => {
+export const useRamonForms = (objConfig) => {
+  const { configArray, isAsync, i18n } = objConfig;
+
   const cache = useRef({
     SSOTS: null,
     customLogic: null,
     configs: null,
     bound: false,
+    inputChanged: null,
+    i18nPrev: null,
   });
 
-  useMemo(() => {
-    if (!cache.current.customLogic && (configArray.length > 0 || !isAsync)) {
-      const { logic, SSOTS } = parseConfig(configArray, isAsync);
-      cache.current.customLogic = logic;
-      cache.current.SSOTS = SSOTS;
-      cache.current.configs = configDispatcher(logic);
-    }
-  }, [configArray, isAsync]);
+  const needFallback = !cache.current.bound && !configArray && isAsync;
+  const userArray = needFallback ? [] : configArray;
+
+  if (!cache.current.customLogic && (userArray.length > 0 || !isAsync)) {
+    const { logic, SSOTS } = parseConfig(userArray, isAsync);
+    const configs = configDispatcher(logic);
+    cache.current.customLogic = logic;
+    cache.current.SSOTS = SSOTS;
+    cache.current.configs = configs;
+    cache.current.i18nPrev = i18n;
+  }
+
+  if (cache.current.i18nPrev && i18n !== cache.current.i18nPrev) {
+    const { logic } = parseConfig(userArray, isAsync);
+    const configs = configDispatcher(logic);
+    reConfigI18n(configs, cache.current.configs);
+    cache.current.bound = false;
+  }
 
   const states = useStateBuilder(cache.current.customLogic);
 
-  useMemo(() => {
-    if (cache.current.configs && !cache.current.bound) {
-      handlersBinder(
-        cache.current.configs,
-        cache.current.customLogic,
-        states,
-        cache.current.SSOTS,
-      );
-      cache.current.bound = true;
-    }
-  }, [configArray, isAsync]);
+  if (cache.current.configs && !cache.current.bound) {
+    handlersBinder(
+      cache.current.configs,
+      cache.current.customLogic,
+      states,
+      cache.current.SSOTS,
+      cache,
+    );
+
+    cache.current.bound = true;
+    cache.current.i18nPrev = i18n;
+  }
 
   if (cache.current.bound) {
-    statesMirroring(
-      cache.current.customLogic,
-      cache.current.SSOTS,
-      cache.current.configs,
-      states,
-    );
+    statesMirroring(states, cache, i18n);
   }
 
   return cache.current.configs || {};
 };
-
-export default useRamonForms;

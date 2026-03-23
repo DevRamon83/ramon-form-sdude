@@ -5,10 +5,11 @@ import { styles } from "./css";
 export default function StarterKit() {
   const [toggle, setToggle] = useState(true);
   const [page, setPage] = useState("sync");
-  const pageArray = ["sync", "async", "uiMode", "doc"];
+  const pageArray = ["sync", "async", "i18n", "uiMode", "doc"];
   const titlesArray = [
     "Synchronous configuration",
     "Asynchronous configuration",
+    "I18n",
     "Ui mode: standalone",
     "How it works",
   ];

@@ -12,5 +12,10 @@ export const buildBasicConfig = (logicObj, caller, id, index) => {
   if (caller === "select")
     buildSelectsConfig(objConfig, logicObj, id, required);
 
-  return { config: objConfig, state: {}, handlers: {} };
+  return {
+    config: objConfig,
+    state: {},
+    handlers: {},
+    returns: { onChange: null, onBlur: null, onFocus: null, onKeyDown: null },
+  };
 };

@@ -8,7 +8,9 @@ We prioritize useMemo over React.memo because, in ultra-intensive scenarios
 with 3000+ controlled inputs, the overhead of React's high-level reconciliation 
 is slower than our targeted reference-based memoization.
 */
-function PasswordInput({ dataField, isAsync }) {
+function PasswordInput({ dataField, isAsync, i18n }) {
+  console.log("PasswordInput ", dataField?.state?.value);
+
   return useMemo(() => {
     const component = <InputField dataField={dataField} />;
 
@@ -17,7 +19,7 @@ function PasswordInput({ dataField, isAsync }) {
     ) : (
       <RenderGate component={component} dataField={dataField} />
     );
-  }, [dataField?.state?.value]);
+  }, [dataField?.state?.value, i18n]);
 }
 
 export default PasswordInput;

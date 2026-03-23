@@ -17,11 +17,11 @@ export const defineConsoleConsts = (input) => {
       return { title: "NUMBER INPUT CONFIGURATION", input: "NumberInput" };
     case "myPasswordField":
       return { title: "PASSWORD INPUT CONFIGURATION", input: "PasswordInput" };
-    case "mySelectSelect":
+    case "mySelect":
       return { title: "SELECT INPUT CONFIGURATION", input: "SelectInput" };
     case "myTelField":
       return { title: "TEL INPUT CONFIGURATION", input: "TelInput" };
-    case "myTextareaField":
+    case "myTextarea":
       return { title: "TEXTAREA INPUT CONFIGURATION", input: "TextareaInput" };
     case "myDateField":
       return { title: "Date INPUT CONFIGURATION", input: "DateInput" };

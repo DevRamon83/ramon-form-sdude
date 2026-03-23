@@ -10,8 +10,7 @@ export default function AsyncHookParams() {
       <span className="PRIparentheses">{"}"}</span> =&nbsp;
       <span className="PRIfunc">useRamonForms</span>
       <span className="PRIparentheses">(</span>
-      <span className="PRIvar">data</span>,&nbsp;
-      <span className="PRIdeclare">true</span>
+      <span className="PRIvar">data</span>
       <span className="PRIparentheses">)</span>
     </p>
   );

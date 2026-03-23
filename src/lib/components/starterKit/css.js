@@ -70,6 +70,10 @@ export const styles = `
   color: #0000ff;
 }
 
+.PRInew {
+  color: #0090ff;
+}
+
 .PRIparentheses {
   color: #008000;
 }
@@ -104,6 +108,10 @@ export const styles = `
 
 .PRIcomponents {
   color: #267f99;
+}
+
+.PRIreturn {
+color: #AF00DB;
 }
 
 .ramon__ide {

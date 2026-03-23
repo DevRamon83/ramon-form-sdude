@@ -4,8 +4,7 @@ export default function InputTextarea({ dataField }) {
   const inputProps = dataField.state || {};
   const eventHandlers = dataField.handlers || {};
 
-  const { id, required, counterLabel, rows, cols, maxChars, maxWords, label } =
-    dataField.config;
+  const { id, counterLabel, maxChars, maxWords, label } = dataField.config;
   const { value } = inputProps;
   const { onChange, onBlur, onFocus, onKeyDown } = eventHandlers;
 
@@ -17,24 +16,31 @@ export default function InputTextarea({ dataField }) {
   const counterRender = maxChars || maxWords;
   const charsType = maxChars || false;
 
+  const props = {
+    required: dataField.config.required,
+    placeholder: dataField.config.placeholder,
+    rows: dataField.config.rows,
+    cols: dataField.config.cols,
+    id: dataField.config.id,
+    name: dataField.config.id,
+    autoComplete: dataField.config.autoComplete,
+    onBlur: funcOnBlur,
+    onFocus: funcOnFocus,
+    onKeyDown: funcOnKeyDown,
+    spellCheck: false,
+    maxLength: maxChars,
+  };
+
+  if (onChange) {
+    props.onChange = funcOnChange;
+    props.value = value || "";
+  }
+
   return (
     <>
       {label && <label htmlFor={id}>{label}</label>}
 
-      <textarea
-        required={required}
-        spellCheck="false"
-        maxLength={maxChars}
-        id={id}
-        rows={rows}
-        cols={cols}
-        name={id}
-        value={value}
-        onChange={funcOnChange}
-        onBlur={funcOnBlur}
-        onFocus={funcOnFocus}
-        onKeyDown={funcOnKeyDown}
-      />
+      <textarea {...props} />
 
       {counterRender && (
         <Counter
