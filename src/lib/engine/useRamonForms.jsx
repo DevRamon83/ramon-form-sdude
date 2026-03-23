@@ -40,7 +40,7 @@ Should the user manipulate the length of 'configArray' during the
 app lifecycle, and only then, data and pointer alignment would be lost.
 */
 
-export const useRamonForms = (objConfig) => {
+const useRamonForms = (objConfig) => {
   const { configArray, isAsync, i18n } = objConfig;
 
   const cache = useRef({
@@ -92,3 +92,5 @@ export const useRamonForms = (objConfig) => {
 
   return cache.current.configs || {};
 };
+
+export default useRamonForms;
