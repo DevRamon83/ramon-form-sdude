@@ -4,7 +4,13 @@ import {
   onChangeInterface,
 } from "./helpers/handlersBinderHelpers";
 
-export const handlersBinder = (configs, customLogic, states, SSOTS, cache) => {
+export const handlersBinder = (
+  configs,
+  customLogic,
+  states,
+  SSOTS,
+  setInputChanged,
+) => {
   const fieldsMap = customLogic.fieldsLogic?.onChangeFuncs || {};
   const groupsMap = customLogic.groupsLogic?.onChangeFuncs || {};
   const selectsMap = customLogic.selectsLogic?.onChangeFuncs || {};
@@ -21,7 +27,7 @@ export const handlersBinder = (configs, customLogic, states, SSOTS, cache) => {
     const { id, value, type } = e.target;
     const onChangeResult = executeOnChangeLogic(id, map, value);
     console.log("handler ", value);
-    cache.current.inputChanged = { id, type };
+    setInputChanged({ id, type });
     setter((prev) => ({
       ...prev,
       [id]: {
@@ -51,7 +57,7 @@ export const handlersBinder = (configs, customLogic, states, SSOTS, cache) => {
    */
   const changeGroupsHandler = (setter, map) => (e) => {
     const { id, value, type, name, checked } = e.target;
-    cache.current.inputChanged = { id: name, type };
+    setInputChanged({ id, type });
     const finalValue = type === "radio" ? value : mirrorUpdate(name);
     const onChangeResult = executeOnChangeLogic(name, map, finalValue);
     if (type === "radio") {
@@ -88,7 +94,7 @@ export const handlersBinder = (configs, customLogic, states, SSOTS, cache) => {
     const { id, value, type } = e.target;
     const ensureId =
       type === "radio" || type === "checkbox" ? e.target.name : id;
-    cache.current.inputChanged = { id: ensureId, type };
+    setInputChanged({ id, type });
 
     const customResult = func(ensureId, value);
     setter((prev) => ({

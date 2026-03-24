@@ -44,8 +44,8 @@ const configDefiner = (type) => {
   return "fields";
 };
 
-const update = (configs, states, customLogic, cache) => {
-  const { type, id } = cache.current.inputChanged;
+const update = (configs, states, customLogic, inputChanged) => {
+  const { type, id } = inputChanged;
   const key = configDefiner(type);
   const logicKey = key + "Logic";
   const logicObj = customLogic[logicKey];
