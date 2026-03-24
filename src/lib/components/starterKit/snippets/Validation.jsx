@@ -4,7 +4,7 @@ export default function Validation() {
       <span className="PRIdeclare">const</span>&nbsp;
       <span className="PRIfunc">validateUsername</span>&nbsp;=&nbsp;
       <span className="PRIparentheses">{"("}</span>
-      <span className="PRIsub">value</span>
+      <span className="PRIsub">value, id</span>
       <span className="PRIparentheses">{")"}</span>&nbsp;{"=>"}&nbsp;
       <span className="PRIparentheses">{"{"}</span>
       {"\n"}

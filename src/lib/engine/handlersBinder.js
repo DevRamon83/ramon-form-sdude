@@ -89,7 +89,7 @@ export const handlersBinder = (configs, customLogic, states, SSOTS, cache) => {
       type === "radio" || type === "checkbox" ? e.target.name : id;
     cache.current.inputChanged = { id: ensureId, type };
 
-    const customResult = func(ensureId, value);
+    const customResult = func(value, ensureId);
     setter((prev) => ({
       ...prev,
       [ensureId]: {

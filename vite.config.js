@@ -6,9 +6,18 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/lib/index.js"),
+      entry: {
+        index: resolve(__dirname, "src/lib/index.js"),
+        starter: resolve(
+          __dirname,
+          "src/lib/components/starterKit/StarterKit.jsx",
+        ),
+      },
       name: "RamonFormSDUDE",
-      fileName: (format) => `ramon-form-sdude.${format}.js`,
+      fileName: (format, entryName) =>
+        `ramon-form-sdude-${entryName}.${format}.js`,
+      // CAMBIA QUESTA RIGA:
+      formats: ["es"],
     },
     rollupOptions: {
       external: ["react", "react-dom"],

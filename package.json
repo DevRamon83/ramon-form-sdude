@@ -8,8 +8,12 @@
   "module": "./dist/ramon-form-sdude.es.js",
   "exports": {
     ".": {
-      "import": "./dist/ramon-form-sdude.es.js",
-      "require": "./dist/ramon-form-sdude.umd.js"
+      "import": "./dist/ramon-form-sdude-index.es.js",
+      "require": "./dist/ramon-form-sdude-index.umd.js"
+    },
+    "./starter": {
+      "import": "./dist/ramon-form-sdude-starter.es.js",
+      "require": "./dist/ramon-form-sdude-starter.umd.js"
     }
   },
   "files": [

@@ -1,4 +1,4 @@
-export const version = "0.0.1";
+export const version = "0.1.1";
 
 export { default as CheckboxInput } from "./components/wrappers/CheckboxInput";
 export { default as DateInput } from "./components/wrappers/DateInput";
