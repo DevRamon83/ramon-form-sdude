@@ -2219,8 +2219,8 @@ const configDefiner = (type) => {
   if (type === "checkbox") return "groups";
   return "fields";
 };
-const update = (configs, states, customLogic, inputChanged) => {
-  const { type, id } = inputChanged;
+const update = (configs, states, customLogic, cache) => {
+  const { type, id } = cache.current.inputChanged;
   const key = configDefiner(type);
   const logicKey = key + "Logic";
   const logicObj = customLogic[logicKey];
