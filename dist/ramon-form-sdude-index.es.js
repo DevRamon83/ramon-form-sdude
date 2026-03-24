@@ -1,11 +1,11 @@
-import { j as c, v as Re, g as $e, p as Fe, f as Ee } from "./validTypes-BIzwwAsG.js";
-import { useMemo as S, useState as J, useRef as Ne } from "react";
-const be = ({ dataField: e }) => {
+import { j as c, v as be, g as $e, p as Fe, f as Ee } from "./validTypes-BIzwwAsG.js";
+import { useMemo as I, useState as J, useRef as Ne } from "react";
+const Te = ({ dataField: e }) => {
   const n = e.state || {}, t = e.handlers || {}, { options: s, required: r, type: o, title: i, name: a } = e.config, { value: l } = n, { onChange: u, onBlur: d, onFocus: p, onKeyDown: f } = t, h = u || (() => {
-  }), x = d || (() => {
-  }), g = p || (() => {
-  }), y = f || (() => {
-  }), E = o === "checkbox" && s.ids.length === 1 ? r : null, $ = o === "radio" ? r : E;
+  }), g = d || (() => {
+  }), m = p || (() => {
+  }), x = f || (() => {
+  }), T = o === "checkbox" && s.ids.length === 1 ? r : null, F = o === "radio" ? r : T;
   return /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
     i && /* @__PURE__ */ c.jsx("div", { className: "", children: i }),
     s.ids.map((N, re) => /* @__PURE__ */ c.jsxs("div", { children: [
@@ -14,12 +14,12 @@ const be = ({ dataField: e }) => {
         {
           type: o,
           id: N,
-          required: $,
+          required: F,
           name: a,
           checked: o === "checkbox" ? l[N] : l === N,
-          onBlur: x,
-          onFocus: g,
-          onKeyDown: y,
+          onBlur: g,
+          onFocus: m,
+          onKeyDown: x,
           onChange: h,
           value: N
         }
@@ -55,7 +55,7 @@ const be = ({ dataField: e }) => {
   
   // Accessing the real-time value of the 'username' field:
   console.log(fields.username.states.value); 
-`, I = () => {
+`, v = () => {
   console.group(
     "%c 💡 SDUDE PROFESSIONAL TIPS ",
     "background: #FF9800; color: white; padding: 2px; border-radius: 2px;"
@@ -69,7 +69,7 @@ const be = ({ dataField: e }) => {
     "%c3) Data Access & State Retrieval",
     "color: #2196F3; font-weight: bold;"
   ), console.log(`%c${je}`, "color: #555; font-family: monospace;"), console.groupEnd(), console.groupEnd();
-}, v = `
+}, C = `
        required: true,      // Optional: Set to 'true' to make this field mandatory (remove if not needed)
        onChange: yourFunc,  // Optional: Event handler function, set to 'true' for a controlled input, or remove/set to 'false' for uncontrolled
        onBlur: yourFunc,    // Optional: Event handler function (remove if not needed)
@@ -82,26 +82,26 @@ const be = ({ dataField: e }) => {
         },
       type: "checkbox",                         // Required: Defines a checkbox input
       title: "What are your hobbies?",          // Optional: The title of your checkbox
-      name: "hobbies",                          // Required: This name becomes the key in the 'groups' object ${v}
+      name: "hobbies",                          // Required: This name becomes the key in the 'groups' object ${C}
       }`, Be = `{
        id: "myDateField",           // Required: This ID becomes the key in the 'fields' object
        type: "date",                // Required: Defines a date input
        label: "Date",               // Optional: UI label (remove if not needed)
        min: "2024-01-01",           // Optional: Format YYYY-MM-DD
        max: "2025-12-31",           // Optional: Format YYYY-MM-DD
-       step: 1,                     // Optional: Interval in days (e.g., "7" for weekly) ${v}
+       step: 1,                     // Optional: Interval in days (e.g., "7" for weekly) ${C}
        }`, Me = `{
        id: "myDateTimeField",       // Required: This ID becomes the key in the 'fields' object
        type: "datetime-local",      // Required: Defines a datetime-local input
        label: "Date and Time",      // Optional: UI label (remove if not needed)
        min: "2024-01-01T00:00",     // Format: YYYY-MM-DDTHH:mm (The 'T' is mandatory)
        max: "2025-12-31T23:59",     // Format: YYYY-MM-DDTHH:mm
-       step: 60,                    // Unit: SECONDS. 60 = 1 minute (default), 3600 = 1 hour, 1 = allow seconds ${v}
+       step: 60,                    // Unit: SECONDS. 60 = 1 minute (default), 3600 = 1 hour, 1 = allow seconds ${C}
        }`, Ve = `{
        id: "myEmailField",                // Required: This ID becomes the key in the 'fields' object
        type: "email",                     // Required: Defines an email input
        label: "Email",                    // Optional: UI label (remove if not needed)
-       placeholder: "example@mail.com",   // Optional: Input placeholder ${v}
+       placeholder: "example@mail.com",   // Optional: Input placeholder ${C}
        }`, Le = `{
        id: "myNumField",                // Required: This ID becomes the key in the 'fields' object
        type: "number",                  // Required: Defines a number input
@@ -109,12 +109,12 @@ const be = ({ dataField: e }) => {
        placeholder: "Enter a number",   // Optional: Input placeholder
        min: 0,                          // Optional: Minimum value
        max: 100,                        // Optional: Maximum value
-       step: 1,                         // Optional: Interval (e.g., "0.01" for decimals) ${v}
+       step: 1,                         // Optional: Interval (e.g., "0.01" for decimals) ${C}
        }`, Pe = `{
        id: "myPasswordField",            // Required: This ID becomes the key in the 'fields' object
        type: "password",                 // Required: Defines a password input
        label: "Your Password",           // Optional: UI label
-       placeholder: "Enter password",    // Optional: Input placeholder ${v}
+       placeholder: "Enter password",    // Optional: Input placeholder ${C}
        }`, Ke = `{
       options: {
       ids: ["music", "movie", "fitness"],       // required: Ids must be unique
@@ -122,23 +122,23 @@ const be = ({ dataField: e }) => {
         },
       type: "radio",                            // Required: Defines a radio input
       title: "What are your hobbies?",          // Optional: The title of your radio
-      name: "hobbies",                          // Required: This name becomes the key in the 'groups' object ${v}
+      name: "hobbies",                          // Required: This name becomes the key in the 'groups' object ${C}
       }`, Ge = `{
     id: "myAccount",                            // Required: This ID becomes the key in the 'selects' object
     type: "select",                             // Required: Defines a select input      
     options: ["teacher", "student"],            // Required: Must be unique among themselves
     labels: ["teacher", "student"],             // Required: Labels and options must be aligned
-    label: "Choose account type",               // Optional: UI label (remove if not needed) ${v}
+    label: "Choose account type",               // Optional: UI label (remove if not needed) ${C}
     }`, He = `{
        id: "myTelField",                 // Required: This ID becomes the key in the 'fields' object
        type: "tel",                      // Required: Defines a tel input
        label: "Your phone number",       // Optional: UI label (remove if not needed)
-       placeholder: "+1 123 456 7890",   // Optional: Input placeholder ${v}
+       placeholder: "+1 123 456 7890",   // Optional: Input placeholder ${C}
        }`, Ye = `{
        id: "myTextField",               // Required: This ID becomes the key in the 'fields' object
        type: "text",                    // Required: Defines a text input
        label: "Username",               // Optional: UI label (remove if not needed)
-       placeholder: "Enter username",   // Optional: Input placeholder ${v}
+       placeholder: "Enter username",   // Optional: Input placeholder ${C}
        }`, We = `{
        id: "myTextareaField",       // Required: This ID becomes the key in the 'textareas' object
        type: "textarea",            // Required: Defines a textarea input
@@ -148,19 +148,19 @@ const be = ({ dataField: e }) => {
        cols: 50,                    // Optional: Number of average characters per line
        counterLabel: "Max Chars"    // Optional: UI label for counter
        maxChars: 500,               // Optional: Set a char limit and counter (Mutually exclusive with maxWords)
-       maxWords: 100,               // Optional: Set a word limit and counter (Mutually exclusive with maxChars) ${v}
+       maxWords: 100,               // Optional: Set a word limit and counter (Mutually exclusive with maxChars) ${C}
        }`, ze = `{
       id: "myTimeField",           // Required: This ID becomes the key in the 'fields' object
       type: "time",                // Required: Defines a time input
       label: "Time",               // Optional: UI label
       min: "09:00",                // Format: HH:mm (24-hour clock)
       max: "18:00",                // Format: HH:mm
-      step: 60,                    // Unit: SECONDS. 60 = 1 min (default), 3600 = 1 hour, 1 = allow seconds ${v}
+      step: 60,                    // Unit: SECONDS. 60 = 1 min (default), 3600 = 1 hour, 1 = allow seconds ${C}
       }`, Xe = `{
        id: "myUrlField",                    // Required: This ID becomes the key in the 'fields' object
        type: "url",                         // Required: Defines a URL input
        label: "Your Website",               // Optional: UI label
-       placeholder: "https://example.com",  // Optional: Input placeholder (example format) ${v}
+       placeholder: "https://example.com",  // Optional: Input placeholder (example format) ${C}
       }`, Je = (e) => {
   switch (e) {
     case "myTextField":
@@ -193,7 +193,7 @@ const be = ({ dataField: e }) => {
     case "myTimeField":
       return { title: "TIME INPUT CONFIGURATION", input: "TimeInput" };
   }
-}, C = (e, n, t) => {
+}, D = (e, n, t) => {
   const s = Je(n);
   console.groupCollapsed(
     `%c 🚀 SDUDE QUICKSTART: ${s.title} `,
@@ -219,45 +219,45 @@ const be = ({ dataField: e }) => {
     "color: #333; font-family: 'Courier New', monospace; line-height: 1.5; font-size: 12px;"
   ), console.groupEnd();
 }, Qe = () => `
-${C(Ue, "myCheckboxGroup", "groups")}
-${I()}
+${D(Ue, "myCheckboxGroup", "groups")}
+${v()}
 `, Ze = () => `
-${C(Be, "myDateField", "fields")}
-${I()}
+${D(Be, "myDateField", "fields")}
+${v()}
 `, _e = () => `
-${C(Me, "myDatetimeField", "fields")}
-${I()}
+${D(Me, "myDatetimeField", "fields")}
+${v()}
 `, en = () => `
-${C(Ve, "myEmailField", "fields")}
-${I()}
+${D(Ve, "myEmailField", "fields")}
+${v()}
 `, nn = () => `
-${C(Le, "myNumberField", "fields")}
-${I()}
+${D(Le, "myNumberField", "fields")}
+${v()}
 `, tn = () => `
-${C(Pe, "myPasswordField", "fields")}
-${I()}
+${D(Pe, "myPasswordField", "fields")}
+${v()}
 `, sn = () => `
-${C(Ke, "myRadioGroup", "groups")}
-${I()}
+${D(Ke, "myRadioGroup", "groups")}
+${v()}
 `, rn = () => `
-${C(Ge, "mySelect", "selects")}
-${I()}
+${D(Ge, "mySelect", "selects")}
+${v()}
 `, on = () => `
-${C(He, "myTelField", "fields")}
-${I()}
+${D(He, "myTelField", "fields")}
+${v()}
 `, an = () => `
-${C(We, "myTextarea", "textareas")}
-${I()}
+${D(We, "myTextarea", "textareas")}
+${v()}
 `, cn = () => `
-${C(Ye, "myTextField", "fields")}
-${I()}
+${D(Ye, "myTextField", "fields")}
+${v()}
 `, ln = () => `
-${C(ze, "myTimeField", "fields")}
-${I()}
+${D(ze, "myTimeField", "fields")}
+${v()}
 `, un = () => `
-${C(Xe, "myUrlField", "fields")}
-${I()}
-`, Te = {
+${D(Xe, "myUrlField", "fields")}
+${v()}
+`, Se = {
   checkbox: Qe,
   date: Ze,
   "dateTime-local": _e,
@@ -272,7 +272,7 @@ ${I()}
   time: ln,
   url: un
 };
-function D({ isAsync: e, dataField: n }) {
+function w({ isAsync: e, dataField: n }) {
   if (e) return;
   const t = {
     border: "2px solid red",
@@ -291,7 +291,7 @@ function D({ isAsync: e, dataField: n }) {
     cursor: "pointer"
   }, r = (o) => {
     o.preventDefault();
-    const i = Te.text;
+    const i = Se.text;
     i();
   };
   return /* @__PURE__ */ c.jsxs("div", { style: { ...t }, children: [
@@ -321,12 +321,12 @@ function D({ isAsync: e, dataField: n }) {
   ] });
 }
 function dn({ dataField: e }) {
-  const { id: n, type: t, name: s } = e.config, r = n || s, { callers: o, errorType: i } = e.errorData, a = o.length === 1, l = a ? "an error" : "errors", u = a ? "key" : "keys", d = "You sent an empty array configuration:", p = r === "noLogicArray", f = {
+  const { id: n, type: t, name: s } = e.config, r = n || s, { callers: o, errorType: i } = e.errorData, a = o.length === 1, l = a ? "an error" : "errors", u = a ? "key" : "keys", d = be.includes(t), p = "You sent an empty array configuration:", f = r === "noLogicArray", h = {
     border: "2px solid red",
     borderRadius: "5px",
     padding: "15px 25px 10px 25px",
     marginBottom: "20px"
-  }, h = {
+  }, g = {
     backgroundColor: "black",
     display: "inline",
     color: "white",
@@ -336,7 +336,7 @@ function dn({ dataField: e }) {
     fontWeight: "bold",
     borderRadius: "5px",
     cursor: "pointer"
-  }, x = /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+  }, m = /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
     "The configuration object for ",
     /* @__PURE__ */ c.jsx("strong", { children: r.toUpperCase() }),
     " ",
@@ -345,43 +345,43 @@ function dn({ dataField: e }) {
     " in the following ",
     u,
     ":"
-  ] }), g = (y) => {
-    y.preventDefault();
-    const b = Te[t];
-    b();
+  ] }), x = (b) => {
+    b.preventDefault();
+    const T = Se[t];
+    T();
   };
-  return /* @__PURE__ */ c.jsxs("div", { style: { ...f }, children: [
-    p ? d : x,
-    /* @__PURE__ */ c.jsx("ol", { style: { textAlign: "left" }, children: o.map((y, b) => /* @__PURE__ */ c.jsxs("li", { children: [
-      /* @__PURE__ */ c.jsx("strong", { children: y.toUpperCase() }),
+  return /* @__PURE__ */ c.jsxs("div", { style: { ...h }, children: [
+    f ? p : m,
+    /* @__PURE__ */ c.jsx("ol", { style: { textAlign: "left" }, children: o.map((b, T) => /* @__PURE__ */ c.jsxs("li", { children: [
+      /* @__PURE__ */ c.jsx("strong", { children: b.toUpperCase() }),
       ": ",
-      i[b]
-    ] }, `${y}-${b}`)) }),
-    /* @__PURE__ */ c.jsxs("p", { children: [
+      i[T]
+    ] }, `${b}-${T}`)) }),
+    d && /* @__PURE__ */ c.jsxs("p", { children: [
       /* @__PURE__ */ c.jsxs("strong", { style: { color: "red" }, children: [
         /* @__PURE__ */ c.jsx("u", { children: "Need help with the configuration" }),
         "?"
       ] }),
-      /* @__PURE__ */ c.jsx("span", { style: { ...h }, onClick: g, children: "Click here" }),
+      /* @__PURE__ */ c.jsx("span", { style: { ...g }, onClick: x, children: "Click here" }),
       "and check the console"
     ] })
   ] });
 }
-function w({ component: e, dataField: n }) {
+function k({ component: e, dataField: n }) {
   return n.error ? /* @__PURE__ */ c.jsx(dn, { dataField: n }) : e;
 }
 function Bt({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
-    const s = /* @__PURE__ */ c.jsx(be, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+  return I(() => {
+    const s = /* @__PURE__ */ c.jsx(Te, { dataField: e });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
-const F = ({ dataField: e, async: n }) => {
+const E = ({ dataField: e, async: n }) => {
   const t = e.state || {}, s = e.handlers || {}, { id: r, label: o } = e.config, { value: i } = t, { onChange: a, onBlur: l, onFocus: u, onKeyDown: d } = s, p = a || (() => {
   }), f = l || (() => {
   }), h = u || (() => {
-  }), x = d || (() => {
-  }), g = {
+  }), g = d || (() => {
+  }), m = {
     required: e.config.required,
     type: e.config.type,
     placeholder: e.config.placeholder,
@@ -393,47 +393,47 @@ const F = ({ dataField: e, async: n }) => {
     autoComplete: e.config.autoComplete,
     onBlur: f,
     onFocus: h,
-    onKeyDown: x
+    onKeyDown: g
   };
-  return a && (g.onChange = p, g.value = i || ""), e.error && n ? null : /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+  return a && (m.onChange = p, m.value = i || ""), e.error && n ? null : /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
     /* @__PURE__ */ c.jsx("label", { htmlFor: r, children: o }),
-    /* @__PURE__ */ c.jsx("input", { ...g })
+    /* @__PURE__ */ c.jsx("input", { ...m })
   ] });
 };
 function Mt({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
-    const s = /* @__PURE__ */ c.jsx(F, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+  return I(() => {
+    const s = /* @__PURE__ */ c.jsx(E, { dataField: e });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
 function Vt({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
-    const s = /* @__PURE__ */ c.jsx(F, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+  return I(() => {
+    const s = /* @__PURE__ */ c.jsx(E, { dataField: e });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
 function Lt({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
-    const s = /* @__PURE__ */ c.jsx(F, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+  return I(() => {
+    const s = /* @__PURE__ */ c.jsx(E, { dataField: e });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
 function Pt({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
-    const s = /* @__PURE__ */ c.jsx(F, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+  return I(() => {
+    const s = /* @__PURE__ */ c.jsx(E, { dataField: e });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
 function Kt({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
-    const s = /* @__PURE__ */ c.jsx(F, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+  return I(() => {
+    const s = /* @__PURE__ */ c.jsx(E, { dataField: e });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
 function Gt({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
-    const s = /* @__PURE__ */ c.jsx(be, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+  return I(() => {
+    const s = /* @__PURE__ */ c.jsx(Te, { dataField: e });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
 const pn = ({ dataField: e }) => {
@@ -451,19 +451,19 @@ const pn = ({ dataField: e }) => {
   };
   return u && (b.onChange = h, b.value = l || ""), /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
     i && /* @__PURE__ */ c.jsx("label", { htmlFor: r, children: i }),
-    /* @__PURE__ */ c.jsx("select", { ...b, children: s.map((E, $) => /* @__PURE__ */ c.jsx("option", { value: E, children: o[$] }, E)) })
+    /* @__PURE__ */ c.jsx("select", { ...b, children: s.map((T, F) => /* @__PURE__ */ c.jsx("option", { value: T, children: o[F] }, T)) })
   ] });
 };
 function Ht({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
+  return I(() => {
     const s = /* @__PURE__ */ c.jsx(pn, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
 function Yt({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
-    const s = /* @__PURE__ */ c.jsx(F, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+  return I(() => {
+    const s = /* @__PURE__ */ c.jsx(E, { dataField: e });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
 function fn({ label: e, value: n, max: t, charsType: s }) {
@@ -481,10 +481,10 @@ function fn({ label: e, value: n, max: t, charsType: s }) {
 }
 function hn({ dataField: e }) {
   const n = e.state || {}, t = e.handlers || {}, { id: s, counterLabel: r, maxChars: o, maxWords: i, label: a } = e.config, { value: l } = n, { onChange: u, onBlur: d, onFocus: p, onKeyDown: f } = t, h = u || (() => {
-  }), x = d || (() => {
-  }), g = p || (() => {
-  }), y = f || (() => {
-  }), b = o || i, E = o || !1, $ = {
+  }), g = d || (() => {
+  }), m = p || (() => {
+  }), x = f || (() => {
+  }), b = o || i, T = o || !1, F = {
     required: e.config.required,
     placeholder: e.config.placeholder,
     rows: e.config.rows,
@@ -492,48 +492,48 @@ function hn({ dataField: e }) {
     id: e.config.id,
     name: e.config.id,
     autoComplete: e.config.autoComplete,
-    onBlur: x,
-    onFocus: g,
-    onKeyDown: y,
+    onBlur: g,
+    onFocus: m,
+    onKeyDown: x,
     spellCheck: !1,
     maxLength: o
   };
-  return u && ($.onChange = h, $.value = l || ""), /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+  return u && (F.onChange = h, F.value = l || ""), /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
     a && /* @__PURE__ */ c.jsx("label", { htmlFor: s, children: a }),
-    /* @__PURE__ */ c.jsx("textarea", { ...$ }),
+    /* @__PURE__ */ c.jsx("textarea", { ...F }),
     b && /* @__PURE__ */ c.jsx(
       fn,
       {
         max: o || i,
         value: l,
         label: r,
-        charsType: E
+        charsType: T
       }
     )
   ] });
 }
 function Wt({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
+  return I(() => {
     const s = /* @__PURE__ */ c.jsx(hn, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
 function zt({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
-    const s = /* @__PURE__ */ c.jsx(F, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+  return I(() => {
+    const s = /* @__PURE__ */ c.jsx(E, { dataField: e });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
 function Xt({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
-    const s = /* @__PURE__ */ c.jsx(F, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+  return I(() => {
+    const s = /* @__PURE__ */ c.jsx(E, { dataField: e });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
 function Jt({ dataField: e, isAsync: n, i18n: t }) {
-  return S(() => {
-    const s = /* @__PURE__ */ c.jsx(F, { dataField: e });
-    return e ? /* @__PURE__ */ c.jsx(w, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(D, { isAsync: n });
+  return I(() => {
+    const s = /* @__PURE__ */ c.jsx(E, { dataField: e });
+    return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
 const Y = (e) => {
@@ -546,7 +546,7 @@ const Y = (e) => {
 }, yn = (e, n, t) => {
   const s = n.replace("Funcs", "");
   Y(e), X(e.errorData, t), e.errors[t] = !0, e.errorData[t].callers.push(s), e.errorData[t].errorType.push("must be a function");
-}, R = (e, n, t, s, r) => {
+}, $ = (e, n, t, s, r) => {
   const o = t || `must be ${r}`;
   Y(e), X(e.errorData, s), e.errors[s] = !0, e.errorData[s].callers.push(n), e.errorData[s].errorType.push(o);
 }, P = (e, n, t) => {
@@ -559,8 +559,8 @@ const Y = (e) => {
   Y(e), X(e.errorData, s), e.errors[s] = !0, e.errorData[s].callers.push(n), e.errorData[s].errorType.push(t);
 }, gn = (e) => e.id ? e.id : e.name, xn = (e) => `Values in the ids array must be unique. Change the value at position ${e.array}`, bn = (e, n, t, s) => {
   for (let r = 0; r < e.length; r++) {
-    const { category: o, nidificate: i, position: a, id: l } = e[r], u = o + "Logic", d = t[u], p = n[a], f = gn(p), h = d.SSOT.indexOf(f), x = i ? xn(e[r]) : "id is duplicated";
-    mn(d, i ? "option" : f, x, h);
+    const { category: o, nidificate: i, position: a, id: l } = e[r], u = o + "Logic", d = t[u], p = n[a], f = gn(p), h = d.SSOT.indexOf(f), g = i ? xn(e[r]) : "id is duplicated";
+    mn(d, i ? "option" : f, g, h);
   }
 }, ce = {
   fieldsSSOT: [],
@@ -588,7 +588,7 @@ const Y = (e) => {
     ids: "invalid",
     labels: "invalid"
   }
-}, state: {}, handlers: {} }), vn = (e, n) => `The ${e} property in ${n} must be an object`, Cn = (e, n, t) => `The ${e} object in ${n} must contain only the ${t}`, Dn = (e, n) => `The ${e} key in ${n} is missing`, le = (e, n) => `The ${e} field in ${n} options must be an array`, Se = (e, n, t) => `The ${e} and ${n} arrays in ${t} must have the same length`, wn = (e, n) => `The ${e} in ${n} must be a string`, ue = "format is invalid", kn = (e) => e !== null || e !== void 0 ? `If you don't provide a valid ID, I can't identify the input. 
+}, state: {}, handlers: {} }), vn = (e, n) => `The ${e} property in ${n} must be an object`, Cn = (e, n, t) => `The ${e} object in ${n} must contain only the ${t}`, Dn = (e, n) => `The ${e} key in ${n} is missing`, le = (e, n) => `The ${e} field in ${n} options must be an array`, Ie = (e, n, t) => `The ${e} and ${n} arrays in ${t} must have the same length`, wn = (e, n) => `The ${e} in ${n} must be a string`, ue = "format is invalid", kn = (e) => e !== null || e !== void 0 ? `If you don't provide a valid ID, I can't identify the input. 
     However, the invalid ID is at position ${e} in the configuration array you provided` : !1, On = (e, n, t) => {
   n[t].push(e);
 }, Rn = (e, n, t, s) => {
@@ -600,10 +600,10 @@ const Y = (e) => {
   const s = n.type;
   let o = typeof e == "function" || t === "onChange" && typeof e == "boolean";
   return s === "textarea" ? n.maxWords || n.maxChars ? !0 : o : (s === "checkbox" || s === "radio") && t === "onChange" ? !0 : o;
-}, Ie = (e, n) => !e || !n ? !1 : e.length === n.length, L = (e, n, t) => {
+}, ve = (e, n) => !e || !n ? !1 : e.length === n.length, L = (e, n, t) => {
   if (typeof e != "number" || Number.isNaN(e)) {
     const s = n.SSOT.length - 1;
-    return R(n, t, "must be a number", s, "a number"), "invalid";
+    return $(n, t, "must be a number", s, "a number"), "invalid";
   }
   return e;
 }, En = (e, n, t, s) => {
@@ -612,7 +612,7 @@ const Y = (e) => {
     return t.splice(0, t.length), t.push("invalid"), `You cannot use an empty string at index ${o}`;
   }
   return n;
-}, ve = (e, n, t) => {
+}, Ce = (e, n, t) => {
   const s = typeof e == "string", r = s ? e : null;
   n.push(r);
   let o = s ? null : wn(e, `${t} array`);
@@ -622,16 +622,16 @@ const Y = (e) => {
     const t = e.join(" - "), s = e.length === 1 ? "is" : "are", r = `${t} ${s} duplicated`, { logicObj: o, id: i, caller: a } = n;
     selectsError(r, o, i, a);
   }
-}, Ce = (e, n) => !e && n ? "mandatory" : !e && !n ? !1 : typeof e != "string" ? "must be a string" : e.trim() === "" ? "cannot be an empty string" : !1, qn = (e, n, t, s, r, o, i) => {
+}, De = (e, n) => !e && n ? "mandatory" : !e && !n ? !1 : typeof e != "string" ? "must be a string" : e.trim() === "" ? "cannot be an empty string" : !1, qn = (e, n, t, s, r, o, i) => {
   e ? $n(n, t, s, r, o) : yn(t, s, i);
-}, De = (e, n, t) => {
+}, we = (e, n, t) => {
   if (n.required && typeof n.required != "boolean") {
-    R(e, "required", "must be a boolean", t);
+    $(e, "required", "must be a boolean", t);
     return;
   }
   const s = !!n.required;
   e.required.push(s);
-}, we = (e, n, t) => {
+}, ke = (e, n, t) => {
   e[n] = {
     SSOT: [],
     types: [],
@@ -662,36 +662,36 @@ const Y = (e) => {
 }, Q = (e, n, t) => {
   const { element: s, id: r, logicObj: o } = e, i = o.SSOT.length - 1, a = Fn(t, s, n), l = n + "Funcs", u = n + "Indexes";
   qn(a, r, o, l, u, t, i);
-}, An = (e) => e.onChange || e.type === "textarea" || e.type === "radio" || e.type === "checkbox", ke = (e, n, t, s) => {
+}, An = (e) => e.onChange || e.type === "textarea" || e.type === "radio" || e.type === "checkbox", Oe = (e, n, t, s) => {
   const r = { element: e, id: t, logicObj: n };
   An(e) && Q(r, "onChange", e.onChange), e.onBlur && Q(r, "onBlur", e.onBlur), e.onFocus && Q(r, "onFocus", e.onFocus), e.onKeyDown && Q(r, "onKeyDown", e.onKeyDown);
 }, H = (e, n, t, s, r) => {
   let o = !1;
-  const { logicObj: i, id: a, index: l, mandatory: u } = s, d = Ce(e, u);
+  const { logicObj: i, id: a, index: l, mandatory: u } = s, d = De(e, u);
   if (d) {
     o = !0;
     const f = a ? null : kn(r);
-    R(i, t, f || d, l);
+    $(i, t, f || d, l);
   }
   const p = o ? "invalid" : e;
   return n.push(p), o;
-}, Oe = (e, n, t, s) => {
+}, Re = (e, n, t, s) => {
   const { logicObj: r, index: o } = s;
-  Re.includes(e) ? H(e, n, t, s) : (n.push(null), R(r, t, "is invalid", o));
+  be.includes(e) ? H(e, n, t, s) : (n.push(null), $(r, t, "is invalid", o));
 }, jn = (e, n, t) => {
   const { label: s, placeholder: r, id: o, type: i } = n, a = e.SSOT.length, l = { logicObj: e, id: o, index: a };
   l.mandatory = !0;
   const d = H(o, e.SSOT, "id", l, t) ? "invalid" : o;
-  l.id = d, Oe(i, e.types, "type", l), l.mandatory = !1, H(s, e.labels, "label", l), i !== "select" && H(r, e.placeholders, "placeholder", l);
+  l.id = d, Re(i, e.types, "type", l), l.mandatory = !1, H(s, e.labels, "label", l), i !== "select" && H(r, e.placeholders, "placeholder", l);
 }, W = (e, n, t, s) => {
   const r = t + "Logic", o = t + "Config";
-  n[r] || we(n, r, o);
+  n[r] || ke(n, r, o);
   const i = n[r];
   i.errors.push(!1), Y(i), jn(i, e, s);
   const a = i.SSOT.length - 1;
-  De(i, e, a);
+  we(i, e, a);
   const u = i.SSOT[a] === "invalid" ? "invalid" : e.id;
-  ke(e, i, u);
+  Oe(e, i, u);
 }, z = (e, n, t) => new RegExp(`^[${n}]+$`).test(e), G = (e, n) => e ? Object.keys(e).length > 0 : !1, Un = (e, n) => {
   const t = parseInt(e);
   return t % 400 === 0 || t % 4 === 0 && t % 100 !== 0;
@@ -752,7 +752,7 @@ const Y = (e) => {
   }
   return p ? { isValid: !1, why: "Invalid format for seconds" } : ae(d) ? { isValid: !0 } : { isValid: !1, why: "Invalid format for time" };
 }, pe = (e, n, t) => {
-  const { customLogic: s, logicKey: r, name: o } = t, i = s[r][o].options[n], a = ve(e, i, n), l = a + " of " + n + " array";
+  const { customLogic: s, logicKey: r, name: o } = t, i = s[r][o].options[n], a = Ce(e, i, n), l = a + " of " + n + " array";
   a && P(l, t, n);
 }, Gn = (e, n, t) => {
   for (let s = 0; s < e.length; s++)
@@ -776,7 +776,7 @@ const Y = (e) => {
   const o = n ? Object.keys(n) : ["ids", "labels"];
   Yn(o, s, e), fe(s, e, o, "labels"), fe(s, e, o, "ids");
   const i = n?.ids ? n.ids : ["invalid"], a = n?.labels ? n.labels : ["invalid"];
-  Wn(i, a, s, e), Ie(i, a) ? Gn(i, a, e) : P(Se("ids", "labels", s), e, "options");
+  Wn(i, a, s, e), ve(i, a) ? Gn(i, a, e) : P(Ie("ids", "labels", s), e, "options");
 }, Xn = (e, n, t, s) => {
   e.mandatory = !0;
   const o = H(
@@ -789,7 +789,7 @@ const Y = (e) => {
   e.name = o;
 }, Jn = (e, n, t) => {
   const s = "groupsLogic";
-  n[s] || we(n, s, "groupsConfig");
+  n[s] || ke(n, s, "groupsConfig");
   const o = e.name, i = n[s];
   i.errors.push(!1);
   const a = i.SSOT.length, l = {
@@ -799,18 +799,18 @@ const Y = (e) => {
     logicKey: s,
     index: a
   };
-  zn(l), De(i, e, a);
+  zn(l), we(i, e, a);
   const u = { logicObj: i, name: o, index: a };
-  Xn(u, o, i, t), Oe(e.type, i.types, "type", u), u.mandatory = !1, H(e.title, i.titles, "title", u), i.SSOT, ke(e, i, e.name);
+  Xn(u, o, i, t), Re(e.type, i.types, "type", u), u.mandatory = !1, H(e.title, i.titles, "title", u), i.SSOT, Oe(e, i, e.name);
 }, Qn = (e, n) => {
   const t = n.SSOT.length - 1, s = e.min ? ie(e.min, "iso") : null, r = e.max ? ie(e.max, "iso") : null;
-  s && !s.isValid && R(n, "min", s.why, t), r && !r.isValid && R(n, "max", r.why, t);
+  s && !s.isValid && $(n, "min", s.why, t), r && !r.isValid && $(n, "max", r.why, t);
 }, Zn = (e, n) => {
   const t = n.SSOT.length - 1, s = e.min ? de(e.min) : null, r = e.max ? de(e.max) : null;
-  s && !s.isValid && R(n, "min", s.why, t), r && !r.isValid && R(n, "max", r.why, t);
+  s && !s.isValid && $(n, "min", s.why, t), r && !r.isValid && $(n, "max", r.why, t);
 }, _n = (e, n) => {
   const t = n.SSOT.length - 1, s = e.min ? ae(e.min) : null, r = e.max ? ae(e.max) : null;
-  e.min && !s && R(n, "min", ue, t), e.max && !r && R(n, "max", ue, t);
+  e.min && !s && $(n, "min", ue, t), e.max && !r && $(n, "max", ue, t);
 }, et = (e, n) => {
   const { id: t, type: s } = e;
   let r = null, o = null;
@@ -835,7 +835,7 @@ const Y = (e) => {
     step: i
   };
 }, he = (e, n, t, s) => {
-  const r = e.selectsConfig[n][t], o = ve(s, r, t);
+  const r = e.selectsConfig[n][t], o = Ce(s, r, t);
   o && se(o, e, n, t);
 }, nt = (e, n, t, s) => {
   if (!e || !n) return;
@@ -851,15 +851,15 @@ const Y = (e) => {
   const t = e.id;
   Sn(n.selectsConfig, t);
   const { options: s, labels: r } = e;
-  if ((!s || !Array.isArray(s)) && se("Options must be an array", n, t, "options"), (!r || !Array.isArray(r)) && se("Labels must be an array", n, t, "labels"), !Ie(s, r)) {
-    const d = Se("options", "labels", t);
+  if ((!s || !Array.isArray(s)) && se("Options must be an array", n, t, "options"), (!r || !Array.isArray(r)) && se("Labels must be an array", n, t, "labels"), !ve(s, r)) {
+    const d = Ie("options", "labels", t);
     se(d, n, t, "options");
   }
   nt(s, r, n, t);
 }, st = (e, n, t) => {
   const s = e.maxChars && L(e.maxChars, n, "step"), r = e.maxWords && L(e.maxWords, n, "step");
   let o = null;
-  return e.counterLabel && (o = typeof e.counterLabel == "string" ? e.counterLabel : "invalid"), o === "invalid" && R(n, "counterLabel", null, t, "string"), { maxChars: s, maxWords: r, counterLabel: o };
+  return e.counterLabel && (o = typeof e.counterLabel == "string" ? e.counterLabel : "invalid"), o === "invalid" && $(n, "counterLabel", null, t, "string"), { maxChars: s, maxWords: r, counterLabel: o };
 }, rt = (e, n) => {
   const t = n.SSOT, s = n.SSOT.length - 1, r = t[s] === "invalid" ? "invalid" : e.id, o = e.rows && L(e.rows, n, "max"), i = e.cols && L(e.cols, n, "min"), { maxChars: a, maxWords: l, counterLabel: u } = st(
     e,
@@ -876,7 +876,7 @@ const Y = (e) => {
 }, ot = (e) => e === "select" ? "selects" : e === "textarea" ? "textareas" : $e.includes(e) ? "groups" : Fe.includes(e) ? "fieldsNum" : Ee.includes(e) ? "fieldsText" : "invalid", it = (e) => {
   if (e.id === "invalid" || e.name === "invalid") return "forbidden";
   const n = e.id ? e.id : e.name;
-  return Ce(n, !0) ? "invalid" : n;
+  return De(n, !0) ? "invalid" : n;
 }, at = (e, n, t) => {
   const { ensureId: s, coords: r } = e, o = n.options ? n.options.ids : [];
   for (let i = 0; i < o.length; i++) {
@@ -929,7 +929,7 @@ const Y = (e) => {
   for (let a = 0; a < e.length; a++)
     lt(e[a], t, a, i);
   return bn(o, e, t), { logic: t, SSOTS: ce };
-}, O = (e, n, t) => {
+}, R = (e, n, t) => {
   t && (e[n] = t);
 }, ut = (e, n, t, s) => {
   const r = t === "password" ? "new-password" : t, o = {
@@ -938,7 +938,7 @@ const Y = (e) => {
     required: e.required[n],
     autoComplete: r
   };
-  return O(o, "label", e.labels[n]), O(o, "placeholder", e.placeholders[n]), O(o, "min", e[s][t]?.min), O(o, "max", e[s][t]?.max), O(o, "step", e[s][t]?.step), o;
+  return R(o, "label", e.labels[n]), R(o, "placeholder", e.placeholders[n]), R(o, "min", e[s][t]?.min), R(o, "max", e[s][t]?.max), R(o, "step", e[s][t]?.step), o;
 }, dt = (e, n, t, s, r) => {
   n[t].error = e;
   const o = s.errorData[r].callers, i = s.errorData[r].errorType;
@@ -949,7 +949,7 @@ const Y = (e) => {
   e.options = r.options, e.labels = r.labels, s && (e.options.unshift(""), e.labels.unshift("..."));
 }, ft = (e, n, t) => {
   const s = n.textareasConfig[t];
-  O(e, "rows", s.rows), O(e, "cols", s.cols), O(e, "maxChars", s.maxChars), O(e, "maxWords", s.maxWords), O(e, "counterLabel", s.counterLabel);
+  R(e, "rows", s.rows), R(e, "cols", s.cols), R(e, "maxChars", s.maxChars), R(e, "maxWords", s.maxWords), R(e, "counterLabel", s.counterLabel);
 }, ht = (e, n, t, s) => {
   const r = n + "sConfig", o = ut(e, s, t, r), i = e.required[s];
   return n === "textarea" && ft(o, e, t), n === "select" && pt(o, e, t, i), {
@@ -971,7 +971,7 @@ const Y = (e) => {
       labels: e[n].options.labels
     }
   };
-  return O(r, "title", e.titles[t]), { config: r, state: {}, handlers: {} };
+  return R(r, "title", e.titles[t]), { config: r, state: {}, handlers: {} };
 }, Z = (e, n) => {
   const t = {}, s = e.SSOT;
   for (let r = 0; r < s.length; r++) {
@@ -1077,9 +1077,9 @@ const Y = (e) => {
     r
   );
 }, vt = (e, n, t, s) => {
-  const { fields: r, textareas: o, groups: i, selects: a } = n, { fieldsLogic: l, textareasLogic: u, groupsLogic: d, selectsLogic: p } = e, f = s.setFieldsState, h = s.setGroupsState, x = s.setSelectsState, g = s.setTextareasState;
-  Tt.forEach((y) => {
-    G(l) && ee(t, y, l, r, f), G(u) && ee(t, y, u, o, g), G(d) && ee(t, y, d, i, h), G(p) && ee(t, y, p, a, x);
+  const { fields: r, textareas: o, groups: i, selects: a } = n, { fieldsLogic: l, textareasLogic: u, groupsLogic: d, selectsLogic: p } = e, f = s.setFieldsState, h = s.setGroupsState, g = s.setSelectsState, m = s.setTextareasState;
+  Tt.forEach((x) => {
+    G(l) && ee(t, x, l, r, f), G(u) && ee(t, x, u, o, m), G(d) && ee(t, x, d, i, h), G(p) && ee(t, x, p, a, g);
   });
 }, xe = (e, n, t) => {
   const s = typeof n[e] == "boolean";
@@ -1102,61 +1102,61 @@ const Y = (e) => {
   }
 }, wt = (e, n, t, s, r) => {
   const o = n.fieldsLogic?.onChangeFuncs || {}, i = n.groupsLogic?.onChangeFuncs || {}, a = n.selectsLogic?.onChangeFuncs || {}, l = n.textareasLogic?.onChangeFuncs || {}, { setFieldsState: u, setGroupsState: d, setSelectsState: p, setTextareasState: f } = t, h = (q, B) => (A) => {
-    const { id: T, value: M, type: V } = A.target, m = xe(T, B, M);
-    r.current.inputChanged = { id: T, type: V }, q((k) => ({
-      ...k,
-      [T]: {
-        ...k[T],
+    const { id: S, value: M, type: V } = A.target, y = xe(S, B, M);
+    r.current.inputChanged = { id: S, type: V }, q((O) => ({
+      ...O,
+      [S]: {
+        ...O[S],
         value: M,
         returns: {
-          ...k[T]?.returns,
-          onChange: m
+          ...O[S]?.returns,
+          onChange: y
         }
       }
     }));
-  }, x = (q) => {
+  }, g = (q) => {
     const B = Object.keys(t.groupsState[q].value), A = {};
-    return B.forEach((T) => {
-      A[T] = document.getElementById(T).checked;
+    return B.forEach((S) => {
+      A[S] = document.getElementById(S).checked;
     }), A;
-  }, g = (q, B) => (A) => {
-    const { id: T, value: M, type: V, name: m, checked: k } = A.target;
-    r.current.inputChanged = { id: m, type: V };
-    const oe = V === "radio" ? M : x(m), K = xe(m, B, oe);
+  }, m = (q, B) => (A) => {
+    const { id: S, value: M, type: V, name: y, checked: O } = A.target;
+    r.current.inputChanged = { id: y, type: V };
+    const oe = V === "radio" ? M : g(y), K = xe(y, B, oe);
     q(V === "radio" ? (j) => ({
       ...j,
-      [m]: {
-        ...j[m],
+      [y]: {
+        ...j[y],
         value: M,
         returns: {
-          ...j[m]?.returns,
+          ...j[y]?.returns,
           onChange: K
         }
       }
     }) : (j) => ({
       ...j,
-      [m]: {
-        ...j[m],
+      [y]: {
+        ...j[y],
         value: {
-          ...j[m].value,
-          [T]: k
+          ...j[y].value,
+          [S]: O
         },
         returns: {
-          ...j[m]?.returns,
+          ...j[y]?.returns,
           onChange: K
         }
       }
     }));
-  }, y = (q, B, A) => (T) => {
-    const { id: M, value: V, type: m } = T.target, k = m === "radio" || m === "checkbox" ? T.target.name : M;
-    r.current.inputChanged = { id: k, type: m };
-    const oe = q(V, k);
+  }, x = (q, B, A) => (S) => {
+    const { id: M, value: V, type: y } = S.target, O = y === "radio" || y === "checkbox" ? S.target.name : M;
+    r.current.inputChanged = { id: O, type: y };
+    const oe = q(V, O);
     A((K) => ({
       ...K,
-      [k]: {
-        ...K[k],
+      [O]: {
+        ...K[O],
         returns: {
-          ...K[k]?.returns,
+          ...K[O]?.returns,
           [B]: oe
         }
       }
@@ -1165,11 +1165,11 @@ const Y = (e) => {
     fields: h(u, o),
     selects: h(p, a),
     textareas: h(f, l),
-    groups: g(d, i)
+    groups: m(d, i)
   };
   Dt(n, e, b, s);
-  const { configFields: E, configGroups: $, configSelects: N, configTextareas: re } = e;
-  return vt(n, e, y, t), { configFields: E, configGroups: $, configSelects: N, configTextareas: re };
+  const { configFields: T, configGroups: F, configSelects: N, configTextareas: re } = e;
+  return vt(n, e, x, t), { configFields: T, configGroups: F, configSelects: N, configTextareas: re };
 }, kt = (e, n, t) => {
   const { setFieldsState: s, setGroupsState: r, setSelectsState: o, setTextareasState: i } = n, { fieldsLogic: a, groupsLogic: l, selectsLogic: u, textareasLogic: d } = e || {}, p = "";
   s(() => U(a, "fields", p)), r(() => U(l, "groups", p)), o(() => U(u, "selects", p)), i(

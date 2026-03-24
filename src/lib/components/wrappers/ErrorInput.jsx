@@ -1,3 +1,4 @@
+import { validTypes } from "../../constants/validTypes";
 import docMap from "../../docs/docMap";
 
 export default function ErrorInput({ dataField }) {
@@ -7,6 +8,7 @@ export default function ErrorInput({ dataField }) {
   const singular = callers.length === 1;
   const errorGram = singular ? "an error" : "errors";
   const keyGram = singular ? "key" : "keys";
+  const validType = validTypes.includes(type);
 
   const voidMessage = "You sent an empty array configuration:";
   const isVoid = rightId === "noLogicArray" ? true : false;
@@ -53,15 +55,17 @@ export default function ErrorInput({ dataField }) {
           </li>
         ))}
       </ol>
-      <p>
-        <strong style={{ color: "red" }}>
-          <u>Need help with the configuration</u>?
-        </strong>
-        <span style={{ ...buttonStyle }} onClick={docHandler}>
-          Click here
-        </span>
-        and check the console
-      </p>
+      {validType && (
+        <p>
+          <strong style={{ color: "red" }}>
+            <u>Need help with the configuration</u>?
+          </strong>
+          <span style={{ ...buttonStyle }} onClick={docHandler}>
+            Click here
+          </span>
+          and check the console
+        </p>
+      )}
     </div>
   );
 }
