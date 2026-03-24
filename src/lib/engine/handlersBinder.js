@@ -19,6 +19,7 @@ export const handlersBinder = (configs, customLogic, states, SSOTS, cache) => {
    */
   const commonOnChangeHandler = (setter, map) => (e) => {
     const { id, value, type } = e.target;
+    console.log("setter ", value);
     const onChangeResult = executeOnChangeLogic(id, map, value);
     cache.current.inputChanged = { id, type };
     setter((prev) => ({

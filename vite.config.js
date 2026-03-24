@@ -5,9 +5,6 @@ import { resolve } from "path";
 export default defineConfig({
   plugins: [react()],
   build: {
-    minify: false,
-    sourcemap: true,
-    emptyOutDir: true,
     lib: {
       entry: resolve(__dirname, "src/lib/index.js"),
       name: "RamonFormSDUDE",
