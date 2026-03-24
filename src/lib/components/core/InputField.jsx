@@ -29,7 +29,6 @@ const InputField = ({ dataField, async }) => {
     props.value = value || "";
   }
 
-  console.log("value input field ", value);
   return dataField.error && async ? null : (
     <>
       <label htmlFor={id}>{label}</label>

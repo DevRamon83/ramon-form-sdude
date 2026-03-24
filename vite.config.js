@@ -5,14 +5,15 @@ import { resolve } from "path";
 export default defineConfig({
   plugins: [react()],
   build: {
+    minify: false,
+    sourcemap: true,
+    emptyOutDir: true,
     lib: {
       entry: resolve(__dirname, "src/lib/index.js"),
       name: "RamonFormSDUDE",
       fileName: (format) => `ramon-form-sdude.${format}.js`,
     },
     rollupOptions: {
-      // IMPORTANTE: Non includere React nel pacchetto finale!
-      // L'utente che usa la lib avrà già il suo React.
       external: ["react", "react-dom"],
       output: {
         globals: {

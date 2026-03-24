@@ -46,8 +46,6 @@ const configDefiner = (type) => {
 
 const update = (configs, states, customLogic, inputChanged) => {
   const { type, id } = inputChanged;
-  console.log("type ", type);
-  console.log("id ", id);
   const key = configDefiner(type);
   const logicKey = key + "Logic";
   const logicObj = customLogic[logicKey];

@@ -13,7 +13,7 @@ import { buildConfig } from "./buildConfig";
  * during the initial boot phase.
  */
 
-export const configDispatcher = (customLogic, inputChanged) => {
+export const configDispatcher = (customLogic) => {
   if (customLogic === "invalid") {
     return {
       fields: {},
@@ -43,6 +43,5 @@ export const configDispatcher = (customLogic, inputChanged) => {
     groups,
     selects,
     textareas,
-    inputChanged,
   };
 };

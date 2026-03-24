@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { parseConfig } from "../parsers/parseConfig";
 import { configDispatcher } from "../builders/configDispatcher";
 import { useStateBuilder } from "./useStateBuilder";
@@ -42,13 +42,13 @@ app lifecycle, and only then, data and pointer alignment would be lost.
 
 const useRamonForms = (objConfig) => {
   const { configArray, isAsync, i18n } = objConfig;
-  const [inputChanged, setInputChanged] = useState({ id: null, type: null });
 
   const cache = useRef({
     SSOTS: null,
     customLogic: null,
     configs: null,
     bound: false,
+    inputChanged: null,
     i18nPrev: null,
   });
 
@@ -57,7 +57,7 @@ const useRamonForms = (objConfig) => {
 
   if (!cache.current.customLogic && (userArray.length > 0 || !isAsync)) {
     const { logic, SSOTS } = parseConfig(userArray, isAsync);
-    const configs = configDispatcher(logic, inputChanged);
+    const configs = configDispatcher(logic);
     cache.current.customLogic = logic;
     cache.current.SSOTS = SSOTS;
     cache.current.configs = configs;
@@ -66,7 +66,7 @@ const useRamonForms = (objConfig) => {
 
   if (cache.current.i18nPrev && i18n !== cache.current.i18nPrev) {
     const { logic } = parseConfig(userArray, isAsync);
-    const configs = configDispatcher(logic, inputChanged);
+    const configs = configDispatcher(logic);
     reConfigI18n(configs, cache.current.configs);
     cache.current.bound = false;
   }
@@ -79,7 +79,7 @@ const useRamonForms = (objConfig) => {
       cache.current.customLogic,
       states,
       cache.current.SSOTS,
-      setInputChanged,
+      cache,
     );
 
     cache.current.bound = true;
@@ -87,7 +87,7 @@ const useRamonForms = (objConfig) => {
   }
 
   if (cache.current.bound) {
-    statesMirroring(states, i18n, inputChanged);
+    statesMirroring(states, cache, i18n);
   }
 
   return cache.current.configs || {};
