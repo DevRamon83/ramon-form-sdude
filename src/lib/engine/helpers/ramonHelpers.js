@@ -51,15 +51,17 @@ const update = (configs, states, customLogic, cache) => {
   const logicObj = customLogic[logicKey];
   if (!logicObj) return;
   const stateKey = key + "State";
-  const config = configs[key][id];
   const state = states[stateKey];
 
-  config.state = { value: state[id]?.value || "" };
-  config.returns = {
-    onChange: state[id]?.returns?.onChange || null,
-    onBlur: state[id]?.returns?.onBlur || null,
-    onFocus: state[id]?.returns?.onFocus || null,
-    onKeyDown: state[id]?.returns?.onKeyDown || null,
+  configs[key][id] = {
+    ...configs[key][id],
+    state: { value: state[id]?.value || "" },
+    returns: {
+      onChange: state[id]?.returns?.onChange || null,
+      onBlur: state[id]?.returns?.onBlur || null,
+      onFocus: state[id]?.returns?.onFocus || null,
+      onKeyDown: state[id]?.returns?.onKeyDown || null,
+    },
   };
 };
 

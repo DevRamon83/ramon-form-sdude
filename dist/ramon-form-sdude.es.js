@@ -1498,12 +1498,16 @@ const ee = (s) => {
 }, ja = (s) => s === "select" ? "selects" : s === "textarea" ? "textareas" : s === "radio" || s === "checkbox" ? "groups" : "fields", ga = (s, n, a, r) => {
   const { type: t, id: o } = r.current.inputChanged, i = ja(t), l = i + "Logic";
   if (!a[l]) return;
-  const u = i + "State", p = s[i][o], h = n[u];
-  p.state = { value: h[o]?.value || "" }, p.returns = {
-    onChange: h[o]?.returns?.onChange || null,
-    onBlur: h[o]?.returns?.onBlur || null,
-    onFocus: h[o]?.returns?.onFocus || null,
-    onKeyDown: h[o]?.returns?.onKeyDown || null
+  const u = i + "State", p = n[u];
+  s[i][o] = {
+    ...s[i][o],
+    state: { value: p[o]?.value || "" },
+    returns: {
+      onChange: p[o]?.returns?.onChange || null,
+      onBlur: p[o]?.returns?.onBlur || null,
+      onFocus: p[o]?.returns?.onFocus || null,
+      onKeyDown: p[o]?.returns?.onKeyDown || null
+    }
   };
 }, Ia = (s, n) => {
   const { customLogic: a, SSOTS: r, configs: t } = n.current;
