@@ -654,7 +654,7 @@ const G = ({ dataField: s, async: n }) => {
     onFocus: f,
     onKeyDown: b
   };
-  return l && (N.onChange = h, N.value = i || ""), s.error && n ? null : /* @__PURE__ */ e.jsxs(e.Fragment, { children: [
+  return l && (N.onChange = h, N.value = i || ""), console.log("value input field ", i), s.error && n ? null : /* @__PURE__ */ e.jsxs(e.Fragment, { children: [
     /* @__PURE__ */ e.jsx("label", { htmlFor: t, children: o }),
     /* @__PURE__ */ e.jsx("input", { ...N })
   ] });
@@ -778,7 +778,7 @@ function gr({ dataField: s, isAsync: n, i18n: a }) {
   }, [s?.state?.value, a]);
 }
 function Ir({ dataField: s, isAsync: n, i18n: a }) {
-  return T(() => {
+  return console.log("wrapper ", s?.state?.value), T(() => {
     const r = /* @__PURE__ */ e.jsx(G, { dataField: s });
     return s ? /* @__PURE__ */ e.jsx(E, { component: r, dataField: s }) : /* @__PURE__ */ e.jsx(D, { isAsync: n });
   }, [s?.state?.value, a]);
@@ -1497,7 +1497,7 @@ const ee = (s) => {
   const { type: t, id: o } = r.current.inputChanged, i = ja(t), l = i + "Logic";
   if (!a[l]) return;
   const u = i + "State", p = s[i][o], h = n[u];
-  console.log("update ", h[o]?.value), p.state = { value: h[o]?.value || "" }, p.returns = {
+  p.state = { value: h[o]?.value || "" }, p.returns = {
     onChange: h[o]?.returns?.onChange || null,
     onBlur: h[o]?.returns?.onBlur || null,
     onFocus: h[o]?.returns?.onFocus || null,
@@ -1542,7 +1542,7 @@ const ee = (s) => {
     l,
     t.current.SSOTS,
     t
-  ), t.current.bound = !0, t.current.i18nPrev = r), t.current.bound && Ia(l, t), t.current.configs || {};
+  ), t.current.bound = !0, t.current.i18nPrev = r), t.current.bound && Ia(l, t), console.log("updated"), { ...t.current.configs };
 };
 function Ra() {
   return /* @__PURE__ */ e.jsxs("p", { className: "ramon__ide", children: [
