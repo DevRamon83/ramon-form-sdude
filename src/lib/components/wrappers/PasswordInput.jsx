@@ -9,8 +9,6 @@ with 3000+ controlled inputs, the overhead of React's high-level reconciliation
 is slower than our targeted reference-based memoization.
 */
 function PasswordInput({ dataField, isAsync, i18n }) {
-  console.log("PasswordInput ", dataField?.state?.value);
-
   return useMemo(() => {
     const component = <InputField dataField={dataField} />;
 

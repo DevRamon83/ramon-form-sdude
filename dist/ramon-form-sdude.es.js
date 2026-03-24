@@ -684,7 +684,7 @@ function hr({ dataField: s, isAsync: n, i18n: a }) {
   }, [s?.state?.value, a]);
 }
 function mr({ dataField: s, isAsync: n, i18n: a }) {
-  return console.log("PasswordInput ", s?.state?.value), T(() => {
+  return T(() => {
     const r = /* @__PURE__ */ e.jsx(G, { dataField: s });
     return s ? /* @__PURE__ */ e.jsx(E, { component: r, dataField: s }) : /* @__PURE__ */ e.jsx(D, { isAsync: n });
   }, [s?.state?.value, a]);
