@@ -81,11 +81,11 @@ function xs() {
       }
       if (m) {
         m = console;
-        var j = m.error, y = typeof Symbol == "function" && Symbol.toStringTag && c[Symbol.toStringTag] || c.constructor.name || "Object";
+        var j = m.error, I = typeof Symbol == "function" && Symbol.toStringTag && c[Symbol.toStringTag] || c.constructor.name || "Object";
         return j.call(
           m,
           "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
-          y
+          I
         ), n(c);
       }
     }
@@ -101,7 +101,7 @@ function xs() {
       }
     }
     function t() {
-      var c = I.A;
+      var c = y.A;
       return c === null ? null : c.getOwner();
     }
     function o() {
@@ -132,14 +132,14 @@ function xs() {
         "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
       )), c = this.props.ref, c !== void 0 ? c : null;
     }
-    function u(c, m, j, y, pe, Ne) {
+    function u(c, m, j, I, pe, Ne) {
       var R = j.ref;
       return c = {
         $$typeof: N,
         type: c,
         key: m,
         props: j,
-        _owner: y
+        _owner: I
       }, (R !== void 0 ? R : null) !== null ? Object.defineProperty(c, "ref", {
         enumerable: !1,
         get: d
@@ -165,13 +165,13 @@ function xs() {
         value: Ne
       }), Object.freeze && (Object.freeze(c.props), Object.freeze(c)), c;
     }
-    function p(c, m, j, y, pe, Ne) {
+    function p(c, m, j, I, pe, Ne) {
       var R = m.children;
       if (R !== void 0)
-        if (y)
+        if (I)
           if (ae(R)) {
-            for (y = 0; y < R.length; y++)
-              h(R[y]);
+            for (I = 0; I < R.length; I++)
+              h(R[I]);
             Object.freeze && Object.freeze(R);
           } else
             console.error(
@@ -183,18 +183,18 @@ function xs() {
         var X = Object.keys(m).filter(function(ds) {
           return ds !== "key";
         });
-        y = 0 < X.length ? "{key: someKey, " + X.join(": ..., ") + ": ...}" : "{key: someKey}", De[R + y] || (X = 0 < X.length ? "{" + X.join(": ..., ") + ": ...}" : "{}", console.error(
+        I = 0 < X.length ? "{key: someKey, " + X.join(": ..., ") + ": ...}" : "{key: someKey}", De[R + I] || (X = 0 < X.length ? "{" + X.join(": ..., ") + ": ...}" : "{}", console.error(
           `A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
   <%s key={someKey} {...props} />`,
-          y,
+          I,
           R,
           X,
           R
-        ), De[R + y] = !0);
+        ), De[R + I] = !0);
       }
       if (R = null, j !== void 0 && (a(j), R = "" + j), i(m) && (a(m.key), R = "" + m.key), "key" in m) {
         j = {};
@@ -219,7 +219,7 @@ React keys must be passed directly to JSX without using spread:
     function x(c) {
       return typeof c == "object" && c !== null && c.$$typeof === N;
     }
-    var f = us, N = /* @__PURE__ */ Symbol.for("react.transitional.element"), P = /* @__PURE__ */ Symbol.for("react.portal"), g = /* @__PURE__ */ Symbol.for("react.fragment"), v = /* @__PURE__ */ Symbol.for("react.strict_mode"), $ = /* @__PURE__ */ Symbol.for("react.profiler"), O = /* @__PURE__ */ Symbol.for("react.consumer"), U = /* @__PURE__ */ Symbol.for("react.context"), ne = /* @__PURE__ */ Symbol.for("react.forward_ref"), B = /* @__PURE__ */ Symbol.for("react.suspense"), H = /* @__PURE__ */ Symbol.for("react.suspense_list"), L = /* @__PURE__ */ Symbol.for("react.memo"), b = /* @__PURE__ */ Symbol.for("react.lazy"), F = /* @__PURE__ */ Symbol.for("react.activity"), Y = /* @__PURE__ */ Symbol.for("react.client.reference"), I = f.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, w = Object.prototype.hasOwnProperty, ae = Array.isArray, V = console.createTask ? console.createTask : function() {
+    var f = us, N = /* @__PURE__ */ Symbol.for("react.transitional.element"), P = /* @__PURE__ */ Symbol.for("react.portal"), g = /* @__PURE__ */ Symbol.for("react.fragment"), v = /* @__PURE__ */ Symbol.for("react.strict_mode"), $ = /* @__PURE__ */ Symbol.for("react.profiler"), O = /* @__PURE__ */ Symbol.for("react.consumer"), U = /* @__PURE__ */ Symbol.for("react.context"), ne = /* @__PURE__ */ Symbol.for("react.forward_ref"), B = /* @__PURE__ */ Symbol.for("react.suspense"), H = /* @__PURE__ */ Symbol.for("react.suspense_list"), L = /* @__PURE__ */ Symbol.for("react.memo"), b = /* @__PURE__ */ Symbol.for("react.lazy"), F = /* @__PURE__ */ Symbol.for("react.activity"), Y = /* @__PURE__ */ Symbol.for("react.client.reference"), y = f.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, w = Object.prototype.hasOwnProperty, ae = Array.isArray, V = console.createTask ? console.createTask : function() {
       return null;
     };
     f = {
@@ -232,24 +232,24 @@ React keys must be passed directly to JSX without using spread:
       o
     )(), Ce = V(r(o)), De = {};
     te.Fragment = g, te.jsx = function(c, m, j) {
-      var y = 1e4 > I.recentlyCreatedOwnerStacks++;
+      var I = 1e4 > y.recentlyCreatedOwnerStacks++;
       return p(
         c,
         m,
         j,
         !1,
-        y ? Error("react-stack-top-frame") : _e,
-        y ? V(r(c)) : Ce
+        I ? Error("react-stack-top-frame") : _e,
+        I ? V(r(c)) : Ce
       );
     }, te.jsxs = function(c, m, j) {
-      var y = 1e4 > I.recentlyCreatedOwnerStacks++;
+      var I = 1e4 > y.recentlyCreatedOwnerStacks++;
       return p(
         c,
         m,
         j,
         !0,
-        y ? Error("react-stack-top-frame") : _e,
-        y ? V(r(c)) : Ce
+        I ? Error("react-stack-top-frame") : _e,
+        I ? V(r(c)) : Ce
       );
     };
   })()), te;
@@ -300,7 +300,7 @@ const Ke = ({ dataField: s }) => {
      {Object.values(fields).map((field, index) => (
         <TextInput key={index} dataField={field} />
      ))}
-     `, Is = `
+     `, ys = `
   📊 DATA ACCESS: HOW TO RETRIEVE YOUR STATES
   
   To access the synchronized state of any 'controlled' input, 
@@ -327,14 +327,14 @@ const Ke = ({ dataField: s }) => {
   ), console.log(`%c${gs}`, "color: #555; font-family: monospace;"), console.groupEnd(), console.groupCollapsed(
     "%c3) Data Access & State Retrieval",
     "color: #2196F3; font-weight: bold;"
-  ), console.log(`%c${Is}`, "color: #555; font-family: monospace;"), console.groupEnd(), console.groupEnd();
+  ), console.log(`%c${ys}`, "color: #555; font-family: monospace;"), console.groupEnd(), console.groupEnd();
 }, _ = `
        required: true,      // Optional: Set to 'true' to make this field mandatory (remove if not needed)
        onChange: yourFunc,  // Optional: Event handler function, set to 'true' for a controlled input, or remove/set to 'false' for uncontrolled
        onBlur: yourFunc,    // Optional: Event handler function (remove if not needed)
        onKeyDown: yourFunc, // Optional: Event handler function (remove if not needed)
        onFocus: yourFunc,   // Optional: Event handler function (remove if not needed)
-`, ys = `{
+`, Is = `{
       options: {
       ids: ["music", "movie", "fitness"],       // required: Ids must be unique
       labels: ["music", "movie", "fitness"],    // required: Labels and ids must be aligned
@@ -478,7 +478,7 @@ const Ke = ({ dataField: s }) => {
     "color: #333; font-family: 'Courier New', monospace; line-height: 1.5; font-size: 12px;"
   ), console.groupEnd();
 }, Os = () => `
-${C(ys, "myCheckboxGroup", "groups")}
+${C(Is, "myCheckboxGroup", "groups")}
 ${S()}
 `, Fs = () => `
 ${C(Rs, "myDateField", "fields")}
@@ -777,13 +777,13 @@ function gr({ dataField: s, isAsync: n, i18n: a }) {
     return s ? /* @__PURE__ */ e.jsx(E, { component: r, dataField: s }) : /* @__PURE__ */ e.jsx(D, { isAsync: n });
   }, [s?.state?.value, a]);
 }
-function Ir({ dataField: s, isAsync: n, i18n: a }) {
+function yr({ dataField: s, isAsync: n, i18n: a }) {
   return console.log("wrapper ", s?.state?.value), T(() => {
     const r = /* @__PURE__ */ e.jsx(G, { dataField: s });
     return s ? /* @__PURE__ */ e.jsx(E, { component: r, dataField: s }) : /* @__PURE__ */ e.jsx(D, { isAsync: n });
   }, [s?.state?.value, a]);
 }
-function yr({ dataField: s, isAsync: n, i18n: a }) {
+function Ir({ dataField: s, isAsync: n, i18n: a }) {
   return T(() => {
     const r = /* @__PURE__ */ e.jsx(G, { dataField: s });
     return s ? /* @__PURE__ */ e.jsx(E, { component: r, dataField: s }) : /* @__PURE__ */ e.jsx(D, { isAsync: n });
@@ -811,7 +811,7 @@ const ee = (s) => {
 }, J = (s, n, a) => {
   const { customLogic: r, logicKey: t, index: o } = n, i = r[t];
   i.errors[o] = !0, ee(i), le(i.errorData, o), i.errorData[o].callers.push(a), i.errorData[o].errorType.push(s);
-}, ye = (s, n, a, r) => {
+}, Ie = (s, n, a, r) => {
   const t = n.SSOT.length - 1;
   ee(n), le(n.errorData, t), n.errors[t] = !0, n.errorData[t].callers.push(r), n.errorData[t].errorType.push(s);
 }, Qs = (s, n, a, r) => {
@@ -887,7 +887,7 @@ const ee = (s) => {
     const a = s.join(" - "), r = s.length === 1 ? "is" : "are", t = `${a} ${r} duplicated`, { logicObj: o, id: i, caller: l } = n;
     selectsError(t, o, i, l);
   }
-}, ns = (s, n) => !s && n ? "mandatory" : !s && !n ? !1 : typeof s != "string" ? "must be a string" : s.trim() === "" ? "cannot be an empty string" : !1, In = (s, n, a, r, t, o, i) => {
+}, ns = (s, n) => !s && n ? "mandatory" : !s && !n ? !1 : typeof s != "string" ? "must be a string" : s.trim() === "" ? "cannot be an empty string" : !1, yn = (s, n, a, r, t, o, i) => {
   s ? xn(n, a, r, t, o) : Xs(a, r, i);
 }, as = (s, n, a) => {
   if (n.required && typeof n.required != "boolean") {
@@ -926,10 +926,10 @@ const ee = (s) => {
   }) : (s[n].titles = [], s[n][a] = {});
 }, me = (s, n, a) => {
   const { element: r, id: t, logicObj: o } = s, i = o.SSOT.length - 1, l = fn(a, r, n), d = n + "Funcs", u = n + "Indexes";
-  In(l, t, o, d, u, a, i);
-}, yn = (s) => s.onChange || s.type === "textarea" || s.type === "radio" || s.type === "checkbox", ts = (s, n, a, r) => {
+  yn(l, t, o, d, u, a, i);
+}, In = (s) => s.onChange || s.type === "textarea" || s.type === "radio" || s.type === "checkbox", ts = (s, n, a, r) => {
   const t = { element: s, id: a, logicObj: n };
-  yn(s) && me(t, "onChange", s.onChange), s.onBlur && me(t, "onBlur", s.onBlur), s.onFocus && me(t, "onFocus", s.onFocus), s.onKeyDown && me(t, "onKeyDown", s.onKeyDown);
+  In(s) && me(t, "onChange", s.onChange), s.onBlur && me(t, "onBlur", s.onBlur), s.onFocus && me(t, "onFocus", s.onFocus), s.onKeyDown && me(t, "onKeyDown", s.onKeyDown);
 }, Z = (s, n, a, r, t) => {
   let o = !1;
   const { logicObj: i, id: l, index: d, mandatory: u } = r, p = ns(s, u);
@@ -1101,7 +1101,7 @@ const ee = (s) => {
   };
 }, Le = (s, n, a, r) => {
   const t = s.selectsConfig[n][a], o = ss(r, t, a);
-  o && ye(o, s, n, a);
+  o && Ie(o, s, n, a);
 }, Un = (s, n, a, r) => {
   if (!s || !n) return;
   const t = [];
@@ -1116,9 +1116,9 @@ const ee = (s) => {
   const a = s.id;
   an(n.selectsConfig, a);
   const { options: r, labels: t } = s;
-  if ((!r || !Array.isArray(r)) && ye("Options must be an array", n, a, "options"), (!t || !Array.isArray(t)) && ye("Labels must be an array", n, a, "labels"), !es(r, t)) {
+  if ((!r || !Array.isArray(r)) && Ie("Options must be an array", n, a, "options"), (!t || !Array.isArray(t)) && Ie("Labels must be an array", n, a, "labels"), !es(r, t)) {
     const p = Ze("options", "labels", a);
-    ye(p, n, a, "options");
+    Ie(p, n, a, "options");
   }
   Un(r, t, n, a);
 }, Ln = (s, n, a) => {
@@ -1368,7 +1368,7 @@ const ee = (s) => {
   }
 }, ua = (s, n, a, r, t) => {
   const o = n.fieldsLogic?.onChangeFuncs || {}, i = n.groupsLogic?.onChangeFuncs || {}, l = n.selectsLogic?.onChangeFuncs || {}, d = n.textareasLogic?.onChangeFuncs || {}, { setFieldsState: u, setGroupsState: p, setSelectsState: h, setTextareasState: x } = a, f = (B, H) => (L) => {
-    const { id: b, value: F, type: Y } = L.target, I = Ge(b, H, F);
+    const { id: b, value: F, type: Y } = L.target, y = Ge(b, H, F);
     console.log("handler ", F), t({ id: b, type: Y }), B((w) => ({
       ...w,
       [b]: {
@@ -1376,7 +1376,7 @@ const ee = (s) => {
         value: F,
         returns: {
           ...w[b]?.returns,
-          onChange: I
+          onChange: y
         }
       }
     }));
@@ -1386,36 +1386,36 @@ const ee = (s) => {
       L[b] = document.getElementById(b).checked;
     }), L;
   }, P = (B, H) => (L) => {
-    const { id: b, value: F, type: Y, name: I, checked: w } = L.target;
+    const { id: b, value: F, type: Y, name: y, checked: w } = L.target;
     t({ id: b, type: Y });
-    const ae = Y === "radio" ? F : N(I), V = Ge(I, H, ae);
+    const ae = Y === "radio" ? F : N(y), V = Ge(y, H, ae);
     B(Y === "radio" ? (A) => ({
       ...A,
-      [I]: {
-        ...A[I],
+      [y]: {
+        ...A[y],
         value: F,
         returns: {
-          ...A[I]?.returns,
+          ...A[y]?.returns,
           onChange: V
         }
       }
     }) : (A) => ({
       ...A,
-      [I]: {
-        ...A[I],
+      [y]: {
+        ...A[y],
         value: {
-          ...A[I].value,
+          ...A[y].value,
           [b]: w
         },
         returns: {
-          ...A[I]?.returns,
+          ...A[y]?.returns,
           onChange: V
         }
       }
     }));
   }, g = (B, H, L) => (b) => {
-    const { id: F, value: Y, type: I } = b.target, w = I === "radio" || I === "checkbox" ? b.target.name : F;
-    t({ id: F, type: I });
+    const { id: F, value: Y, type: y } = b.target, w = y === "radio" || y === "checkbox" ? b.target.name : F;
+    t({ id: F, type: y });
     const ae = B(w, Y);
     L((V) => ({
       ...V,
@@ -1495,7 +1495,9 @@ const ee = (s) => {
     xa(d, s[t], a[u]);
   }
 }, ja = (s) => s === "select" ? "selects" : s === "textarea" ? "textareas" : s === "radio" || s === "checkbox" ? "groups" : "fields", ga = (s, n, a, r) => {
-  const { type: t, id: o } = r, i = ja(t), l = i + "Logic";
+  const { type: t, id: o } = r;
+  console.log("type ", t), console.log("id ", o);
+  const i = ja(t), l = i + "Logic";
   if (!a[l]) return;
   const u = i + "State", p = s[i][o], h = n[u];
   p.state = { value: h[o]?.value || "" }, p.returns = {
@@ -1504,23 +1506,23 @@ const ee = (s) => {
     onFocus: h[o]?.returns?.onFocus || null,
     onKeyDown: h[o]?.returns?.onKeyDown || null
   };
-}, Ia = (s, n) => {
+}, ya = (s, n) => {
   const { customLogic: a, SSOTS: r, configs: t } = n.current;
   n.current.inputChanged ? ga(t, s, a, n) : fa(t, r, s, a), t.resets && Object.keys(t.resets).length === 0 && (t.resets.resetAll = () => pa(a, s, n), t.resets.resetOne = (o) => ma(s, o));
-}, Ie = (s, n, a) => {
+}, ye = (s, n, a) => {
   for (let r = 0; r < s.length; r++)
     a[s[r]].config = n[s[r]].config;
-}, ya = (s, n) => {
+}, Ia = (s, n) => {
   const a = s.fields, r = n.fields, t = Object.keys(a);
-  Ie(t, a, r);
+  ye(t, a, r);
   const o = s.groups, i = n.groups, l = Object.keys(o);
-  Ie(l, o, i);
+  ye(l, o, i);
   const d = s.selects, u = n.selects, p = Object.keys(d);
-  Ie(p, d, u);
+  ye(p, d, u);
   const h = s.textareas, x = n.textareas, f = Object.keys(h);
-  Ie(f, h, x);
+  ye(f, h, x);
 }, br = (s) => {
-  const { configArray: n, isAsync: a, i18n: r } = s, [t, o] = K(null), i = ps({
+  const { configArray: n, isAsync: a, i18n: r } = s, [t, o] = K({ id: null, type: null }), i = ps({
     SSOTS: null,
     customLogic: null,
     configs: null,
@@ -1533,7 +1535,7 @@ const ee = (s) => {
   }
   if (i.current.i18nPrev && r !== i.current.i18nPrev) {
     const { logic: p } = He(d, a), h = Ye(p, t);
-    ya(h, i.current.configs), i.current.bound = !1;
+    Ia(h, i.current.configs), i.current.bound = !1;
   }
   const u = ra(i.current.customLogic);
   return i.current.configs && !i.current.bound && (ua(
@@ -1542,7 +1544,7 @@ const ee = (s) => {
     u,
     i.current.SSOTS,
     o
-  ), i.current.bound = !0, i.current.i18nPrev = r), i.current.bound && Ia(u, r), i.current.configs || {};
+  ), i.current.bound = !0, i.current.i18nPrev = r), i.current.bound && ya(u, r), i.current.configs || {};
 };
 function Ra() {
   return /* @__PURE__ */ e.jsxs("p", { className: "ramon__ide", children: [
@@ -3860,10 +3862,10 @@ export {
   fr as SelectInput,
   Nr as StarterKit,
   jr as TelInput,
-  Ir as TextInput,
+  yr as TextInput,
   gr as TextareaInput,
   Rr as TimeInput,
-  yr as UrlInput,
+  Ir as UrlInput,
   br as useRamonForm,
   Pr as version
 };

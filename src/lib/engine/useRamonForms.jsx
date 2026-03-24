@@ -42,7 +42,7 @@ app lifecycle, and only then, data and pointer alignment would be lost.
 
 const useRamonForms = (objConfig) => {
   const { configArray, isAsync, i18n } = objConfig;
-  const [inputChanged, setInputChanged] = useState(null);
+  const [inputChanged, setInputChanged] = useState({ id: null, type: null });
 
   const cache = useRef({
     SSOTS: null,
