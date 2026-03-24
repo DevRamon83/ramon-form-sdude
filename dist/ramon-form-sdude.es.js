@@ -40,9 +40,9 @@ function xs() {
           return "StrictMode";
         case U:
           return "Suspense";
-        case V:
-          return "SuspenseList";
         case H:
+          return "SuspenseList";
+        case L:
           return "Activity";
       }
       if (typeof c == "object")
@@ -219,7 +219,7 @@ React keys must be passed directly to JSX without using spread:
     function x(c) {
       return typeof c == "object" && c !== null && c.$$typeof === b;
     }
-    var f = us, b = /* @__PURE__ */ Symbol.for("react.transitional.element"), N = /* @__PURE__ */ Symbol.for("react.portal"), g = /* @__PURE__ */ Symbol.for("react.fragment"), v = /* @__PURE__ */ Symbol.for("react.strict_mode"), M = /* @__PURE__ */ Symbol.for("react.profiler"), O = /* @__PURE__ */ Symbol.for("react.consumer"), $ = /* @__PURE__ */ Symbol.for("react.context"), ne = /* @__PURE__ */ Symbol.for("react.forward_ref"), U = /* @__PURE__ */ Symbol.for("react.suspense"), V = /* @__PURE__ */ Symbol.for("react.suspense_list"), B = /* @__PURE__ */ Symbol.for("react.memo"), P = /* @__PURE__ */ Symbol.for("react.lazy"), H = /* @__PURE__ */ Symbol.for("react.activity"), Y = /* @__PURE__ */ Symbol.for("react.client.reference"), I = f.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, w = Object.prototype.hasOwnProperty, ae = Array.isArray, L = console.createTask ? console.createTask : function() {
+    var f = us, b = /* @__PURE__ */ Symbol.for("react.transitional.element"), N = /* @__PURE__ */ Symbol.for("react.portal"), g = /* @__PURE__ */ Symbol.for("react.fragment"), v = /* @__PURE__ */ Symbol.for("react.strict_mode"), M = /* @__PURE__ */ Symbol.for("react.profiler"), O = /* @__PURE__ */ Symbol.for("react.consumer"), $ = /* @__PURE__ */ Symbol.for("react.context"), ne = /* @__PURE__ */ Symbol.for("react.forward_ref"), U = /* @__PURE__ */ Symbol.for("react.suspense"), H = /* @__PURE__ */ Symbol.for("react.suspense_list"), B = /* @__PURE__ */ Symbol.for("react.memo"), P = /* @__PURE__ */ Symbol.for("react.lazy"), L = /* @__PURE__ */ Symbol.for("react.activity"), Y = /* @__PURE__ */ Symbol.for("react.client.reference"), I = f.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, w = Object.prototype.hasOwnProperty, ae = Array.isArray, V = console.createTask ? console.createTask : function() {
       return null;
     };
     f = {
@@ -230,7 +230,7 @@ React keys must be passed directly to JSX without using spread:
     var F, Se = {}, _e = f.react_stack_bottom_frame.bind(
       f,
       o
-    )(), Ce = L(r(o)), De = {};
+    )(), Ce = V(r(o)), De = {};
     te.Fragment = g, te.jsx = function(c, m, j) {
       var y = 1e4 > I.recentlyCreatedOwnerStacks++;
       return p(
@@ -239,7 +239,7 @@ React keys must be passed directly to JSX without using spread:
         j,
         !1,
         y ? Error("react-stack-top-frame") : _e,
-        y ? L(r(c)) : Ce
+        y ? V(r(c)) : Ce
       );
     }, te.jsxs = function(c, m, j) {
       var y = 1e4 > I.recentlyCreatedOwnerStacks++;
@@ -249,7 +249,7 @@ React keys must be passed directly to JSX without using spread:
         j,
         !0,
         y ? Error("react-stack-top-frame") : _e,
-        y ? L(r(c)) : Ce
+        y ? V(r(c)) : Ce
       );
     };
   })()), te;
@@ -1366,13 +1366,13 @@ const ee = (s) => {
     ca(h, x, d, f);
   }
 }, ua = (s, n, a, r, t) => {
-  const o = n.fieldsLogic?.onChangeFuncs || {}, i = n.groupsLogic?.onChangeFuncs || {}, l = n.selectsLogic?.onChangeFuncs || {}, d = n.textareasLogic?.onChangeFuncs || {}, { setFieldsState: u, setGroupsState: p, setSelectsState: h, setTextareasState: x } = a, f = (U, V) => (B) => {
-    const { id: P, value: H, type: Y } = B.target, I = Ge(P, V, H);
-    t.current.inputChanged = { id: P, type: Y }, U((w) => ({
+  const o = n.fieldsLogic?.onChangeFuncs || {}, i = n.groupsLogic?.onChangeFuncs || {}, l = n.selectsLogic?.onChangeFuncs || {}, d = n.textareasLogic?.onChangeFuncs || {}, { setFieldsState: u, setGroupsState: p, setSelectsState: h, setTextareasState: x } = a, f = (U, H) => (B) => {
+    const { id: P, value: L, type: Y } = B.target, I = Ge(P, H, L);
+    console.log("handler ", L), t.current.inputChanged = { id: P, type: Y }, U((w) => ({
       ...w,
       [P]: {
         ...w[P],
-        value: H,
+        value: L,
         returns: {
           ...w[P]?.returns,
           onChange: I
@@ -1380,22 +1380,22 @@ const ee = (s) => {
       }
     }));
   }, b = (U) => {
-    const V = Object.keys(a.groupsState[U].value), B = {};
-    return V.forEach((P) => {
+    const H = Object.keys(a.groupsState[U].value), B = {};
+    return H.forEach((P) => {
       B[P] = document.getElementById(P).checked;
     }), B;
-  }, N = (U, V) => (B) => {
-    const { id: P, value: H, type: Y, name: I, checked: w } = B.target;
+  }, N = (U, H) => (B) => {
+    const { id: P, value: L, type: Y, name: I, checked: w } = B.target;
     t.current.inputChanged = { id: I, type: Y };
-    const ae = Y === "radio" ? H : b(I), L = Ge(I, V, ae);
+    const ae = Y === "radio" ? L : b(I), V = Ge(I, H, ae);
     U(Y === "radio" ? (F) => ({
       ...F,
       [I]: {
         ...F[I],
-        value: H,
+        value: L,
         returns: {
           ...F[I]?.returns,
-          onChange: L
+          onChange: V
         }
       }
     }) : (F) => ({
@@ -1408,21 +1408,21 @@ const ee = (s) => {
         },
         returns: {
           ...F[I]?.returns,
-          onChange: L
+          onChange: V
         }
       }
     }));
-  }, g = (U, V, B) => (P) => {
-    const { id: H, value: Y, type: I } = P.target, w = I === "radio" || I === "checkbox" ? P.target.name : H;
+  }, g = (U, H, B) => (P) => {
+    const { id: L, value: Y, type: I } = P.target, w = I === "radio" || I === "checkbox" ? P.target.name : L;
     t.current.inputChanged = { id: w, type: I };
     const ae = U(w, Y);
-    B((L) => ({
-      ...L,
+    B((V) => ({
+      ...V,
       [w]: {
-        ...L[w],
+        ...V[w],
         returns: {
-          ...L[w]?.returns,
-          [V]: ae
+          ...V[w]?.returns,
+          [H]: ae
         }
       }
     }));
@@ -1497,7 +1497,7 @@ const ee = (s) => {
   const { type: t, id: o } = r.current.inputChanged, i = ja(t), l = i + "Logic";
   if (!a[l]) return;
   const u = i + "State", p = s[i][o], h = n[u];
-  p.state = { value: h[o]?.value || "" }, p.returns = {
+  console.log("update ", h[o]?.value), p.state = { value: h[o]?.value || "" }, p.returns = {
     onChange: h[o]?.returns?.onChange || null,
     onBlur: h[o]?.returns?.onBlur || null,
     onFocus: h[o]?.returns?.onFocus || null,

@@ -1,7 +1,7 @@
 {
   "name": "ramon-form-sdude",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "SDUDE: Schema-Driven UI Dynamic Engine. A robust, ultra-fast form orchestration engine for React 19. Transform complex logic arrays into fully-synchronized, high-performance dynamic forms with zero boilerplate.",
   "type": "module",
   "main": "./dist/ramon-form-sdude.umd.js",

@@ -53,7 +53,7 @@ const update = (configs, states, customLogic, cache) => {
   const stateKey = key + "State";
   const config = configs[key][id];
   const state = states[stateKey];
-
+  console.log("update ", state[id]?.value);
   config.state = { value: state[id]?.value || "" };
   config.returns = {
     onChange: state[id]?.returns?.onChange || null,
