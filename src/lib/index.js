@@ -14,4 +14,3 @@ export { default as TextInput } from "./components/wrappers/TextInput";
 export { default as UrlInput } from "./components/wrappers/UrlInput";
 export { default as TimeInput } from "./components/wrappers/TimeInput";
 export { default as useRamonForm } from "./engine/useRamonForms";
-export { default as StarterKit } from "./components/starterKit/StarterKit";

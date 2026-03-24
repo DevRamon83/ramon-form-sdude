@@ -1,5 +1,4 @@
-import { j as c, v as Re, g as $e, p as Fe, f as Ee } from "./StarterKit-D8mvO6du.js";
-import { S as ns } from "./StarterKit-D8mvO6du.js";
+import { j as c, v as Re, g as $e, p as Fe, f as Ee } from "./validTypes-BIzwwAsG.js";
 import { useMemo as S, useState as J, useRef as Ne } from "react";
 const be = ({ dataField: e }) => {
   const n = e.state || {}, t = e.handlers || {}, { options: s, required: r, type: o, title: i, name: a } = e.config, { value: l } = n, { onChange: u, onBlur: d, onFocus: p, onKeyDown: f } = t, h = u || (() => {
@@ -1293,7 +1292,6 @@ export {
   Kt as PasswordInput,
   Gt as RadioInput,
   Ht as SelectInput,
-  ns as StarterKit,
   Yt as TelInput,
   zt as TextInput,
   Wt as TextareaInput,

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ViewManager from "./ViewManager";
 import { styles } from "./css";
 
-export default function StarterKit() {
+export function StarterKit() {
   const [toggle, setToggle] = useState(true);
   const [page, setPage] = useState("sync");
   const pageArray = ["sync", "async", "i18n", "uiMode", "doc"];
