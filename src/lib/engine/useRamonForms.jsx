@@ -56,7 +56,6 @@ const useRamonForms = (objConfig) => {
   const userArray = needFallback ? [] : configArray;
 
   if (!cache.current.customLogic && (userArray.length > 0 || !isAsync)) {
-    console.log("parsing");
     const { logic, SSOTS } = parseConfig(userArray, isAsync);
     const configs = configDispatcher(logic);
     cache.current.customLogic = logic;
@@ -75,7 +74,6 @@ const useRamonForms = (objConfig) => {
   const states = useStateBuilder(cache.current.customLogic);
 
   if (cache.current.configs && !cache.current.bound) {
-    console.log("binding");
     handlersBinder(
       cache.current.configs,
       cache.current.customLogic,

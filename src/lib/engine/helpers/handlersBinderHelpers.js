@@ -72,7 +72,7 @@ export const executeOnChangeLogic = (id, map, value) => {
   const isBoolean = typeof map[id] === "boolean";
   if (!map || Object.keys(map).length === 0 || isBoolean) return;
   const myFunc = map[id];
-  const result = myFunc && myFunc(value);
+  const result = myFunc && myFunc(id, value);
   return result;
 };
 

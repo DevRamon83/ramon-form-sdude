@@ -10,7 +10,6 @@ is slower than our targeted reference-based memoization.
 */
 
 function TextInput({ dataField, isAsync, i18n }) {
-  console.log("wrapper");
   return useMemo(() => {
     const component = <InputField dataField={dataField} />;
 

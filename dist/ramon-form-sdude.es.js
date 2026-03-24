@@ -40,9 +40,9 @@ function xs() {
           return "StrictMode";
         case U:
           return "Suspense";
-        case H:
+        case V:
           return "SuspenseList";
-        case L:
+        case H:
           return "Activity";
       }
       if (typeof c == "object")
@@ -219,7 +219,7 @@ React keys must be passed directly to JSX without using spread:
     function x(c) {
       return typeof c == "object" && c !== null && c.$$typeof === b;
     }
-    var f = us, b = /* @__PURE__ */ Symbol.for("react.transitional.element"), N = /* @__PURE__ */ Symbol.for("react.portal"), g = /* @__PURE__ */ Symbol.for("react.fragment"), v = /* @__PURE__ */ Symbol.for("react.strict_mode"), M = /* @__PURE__ */ Symbol.for("react.profiler"), O = /* @__PURE__ */ Symbol.for("react.consumer"), $ = /* @__PURE__ */ Symbol.for("react.context"), ne = /* @__PURE__ */ Symbol.for("react.forward_ref"), U = /* @__PURE__ */ Symbol.for("react.suspense"), H = /* @__PURE__ */ Symbol.for("react.suspense_list"), B = /* @__PURE__ */ Symbol.for("react.memo"), P = /* @__PURE__ */ Symbol.for("react.lazy"), L = /* @__PURE__ */ Symbol.for("react.activity"), Y = /* @__PURE__ */ Symbol.for("react.client.reference"), I = f.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, w = Object.prototype.hasOwnProperty, ae = Array.isArray, V = console.createTask ? console.createTask : function() {
+    var f = us, b = /* @__PURE__ */ Symbol.for("react.transitional.element"), N = /* @__PURE__ */ Symbol.for("react.portal"), g = /* @__PURE__ */ Symbol.for("react.fragment"), v = /* @__PURE__ */ Symbol.for("react.strict_mode"), M = /* @__PURE__ */ Symbol.for("react.profiler"), O = /* @__PURE__ */ Symbol.for("react.consumer"), $ = /* @__PURE__ */ Symbol.for("react.context"), ne = /* @__PURE__ */ Symbol.for("react.forward_ref"), U = /* @__PURE__ */ Symbol.for("react.suspense"), V = /* @__PURE__ */ Symbol.for("react.suspense_list"), B = /* @__PURE__ */ Symbol.for("react.memo"), P = /* @__PURE__ */ Symbol.for("react.lazy"), H = /* @__PURE__ */ Symbol.for("react.activity"), Y = /* @__PURE__ */ Symbol.for("react.client.reference"), I = f.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, w = Object.prototype.hasOwnProperty, ae = Array.isArray, L = console.createTask ? console.createTask : function() {
       return null;
     };
     f = {
@@ -230,7 +230,7 @@ React keys must be passed directly to JSX without using spread:
     var F, Se = {}, _e = f.react_stack_bottom_frame.bind(
       f,
       o
-    )(), Ce = V(r(o)), De = {};
+    )(), Ce = L(r(o)), De = {};
     te.Fragment = g, te.jsx = function(c, m, j) {
       var y = 1e4 > I.recentlyCreatedOwnerStacks++;
       return p(
@@ -239,7 +239,7 @@ React keys must be passed directly to JSX without using spread:
         j,
         !1,
         y ? Error("react-stack-top-frame") : _e,
-        y ? V(r(c)) : Ce
+        y ? L(r(c)) : Ce
       );
     }, te.jsxs = function(c, m, j) {
       var y = 1e4 > I.recentlyCreatedOwnerStacks++;
@@ -249,7 +249,7 @@ React keys must be passed directly to JSX without using spread:
         j,
         !0,
         y ? Error("react-stack-top-frame") : _e,
-        y ? V(r(c)) : Ce
+        y ? L(r(c)) : Ce
       );
     };
   })()), te;
@@ -778,7 +778,7 @@ function gr({ dataField: s, isAsync: n, i18n: a }) {
   }, [s?.state?.value, a]);
 }
 function Ir({ dataField: s, isAsync: n, i18n: a }) {
-  return console.log("wrapper"), T(() => {
+  return T(() => {
     const r = /* @__PURE__ */ e.jsx(G, { dataField: s });
     return s ? /* @__PURE__ */ e.jsx(E, { component: r, dataField: s }) : /* @__PURE__ */ e.jsx(D, { isAsync: n });
   }, [s?.state?.value, a]);
@@ -1350,7 +1350,7 @@ const ee = (s) => {
   const r = typeof n[s] == "boolean";
   if (!n || Object.keys(n).length === 0 || r) return;
   const t = n[s];
-  return t && t(a);
+  return t && t(s, a);
 }, ca = (s, n, a, r) => {
   for (let t = 0; t < a.length; t++) {
     const o = s[a[t]];
@@ -1366,15 +1366,13 @@ const ee = (s) => {
     ca(h, x, d, f);
   }
 }, ua = (s, n, a, r, t) => {
-  const o = n.fieldsLogic?.onChangeFuncs || {}, i = n.groupsLogic?.onChangeFuncs || {}, l = n.selectsLogic?.onChangeFuncs || {}, d = n.textareasLogic?.onChangeFuncs || {}, { setFieldsState: u, setGroupsState: p, setSelectsState: h, setTextareasState: x } = a, f = (U, H) => (B) => {
-    const { id: P, value: L, type: Y } = B.target;
-    console.log("setter ", L);
-    const I = Ge(P, H, L);
+  const o = n.fieldsLogic?.onChangeFuncs || {}, i = n.groupsLogic?.onChangeFuncs || {}, l = n.selectsLogic?.onChangeFuncs || {}, d = n.textareasLogic?.onChangeFuncs || {}, { setFieldsState: u, setGroupsState: p, setSelectsState: h, setTextareasState: x } = a, f = (U, V) => (B) => {
+    const { id: P, value: H, type: Y } = B.target, I = Ge(P, V, H);
     t.current.inputChanged = { id: P, type: Y }, U((w) => ({
       ...w,
       [P]: {
         ...w[P],
-        value: L,
+        value: H,
         returns: {
           ...w[P]?.returns,
           onChange: I
@@ -1382,22 +1380,22 @@ const ee = (s) => {
       }
     }));
   }, b = (U) => {
-    const H = Object.keys(a.groupsState[U].value), B = {};
-    return H.forEach((P) => {
+    const V = Object.keys(a.groupsState[U].value), B = {};
+    return V.forEach((P) => {
       B[P] = document.getElementById(P).checked;
     }), B;
-  }, N = (U, H) => (B) => {
-    const { id: P, value: L, type: Y, name: I, checked: w } = B.target;
+  }, N = (U, V) => (B) => {
+    const { id: P, value: H, type: Y, name: I, checked: w } = B.target;
     t.current.inputChanged = { id: I, type: Y };
-    const ae = Y === "radio" ? L : b(I), V = Ge(I, H, ae);
+    const ae = Y === "radio" ? H : b(I), L = Ge(I, V, ae);
     U(Y === "radio" ? (F) => ({
       ...F,
       [I]: {
         ...F[I],
-        value: L,
+        value: H,
         returns: {
           ...F[I]?.returns,
-          onChange: V
+          onChange: L
         }
       }
     }) : (F) => ({
@@ -1410,21 +1408,21 @@ const ee = (s) => {
         },
         returns: {
           ...F[I]?.returns,
-          onChange: V
+          onChange: L
         }
       }
     }));
-  }, g = (U, H, B) => (P) => {
-    const { id: L, value: Y, type: I } = P.target, w = I === "radio" || I === "checkbox" ? P.target.name : L;
+  }, g = (U, V, B) => (P) => {
+    const { id: H, value: Y, type: I } = P.target, w = I === "radio" || I === "checkbox" ? P.target.name : H;
     t.current.inputChanged = { id: w, type: I };
     const ae = U(w, Y);
-    B((V) => ({
-      ...V,
+    B((L) => ({
+      ...L,
       [w]: {
-        ...V[w],
+        ...L[w],
         returns: {
-          ...V[w]?.returns,
-          [H]: ae
+          ...L[w]?.returns,
+          [V]: ae
         }
       }
     }));
@@ -1534,7 +1532,6 @@ const ee = (s) => {
     i18nPrev: null
   }), i = !t.current.bound && !n && a ? [] : n;
   if (!t.current.customLogic && (i.length > 0 || !a)) {
-    console.log("parsing");
     const { logic: d, SSOTS: u } = He(i, a), p = Ye(d);
     t.current.customLogic = d, t.current.SSOTS = u, t.current.configs = p, t.current.i18nPrev = r;
   }
@@ -1543,7 +1540,7 @@ const ee = (s) => {
     ya(u, t.current.configs), t.current.bound = !1;
   }
   const l = ra(t.current.customLogic);
-  return t.current.configs && !t.current.bound && (console.log("binding"), ua(
+  return t.current.configs && !t.current.bound && (ua(
     t.current.configs,
     t.current.customLogic,
     l,
