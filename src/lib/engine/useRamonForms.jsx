@@ -90,7 +90,8 @@ const useRamonForms = (objConfig) => {
     statesMirroring(states, cache, i18n);
   }
 
-  return cache.current.configs || {};
+  console.log("updated");
+  return { ...cache.current.configs } || {};
 };
 
 export default useRamonForms;

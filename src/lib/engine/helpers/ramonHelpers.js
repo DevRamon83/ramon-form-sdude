@@ -53,7 +53,7 @@ const update = (configs, states, customLogic, cache) => {
   const stateKey = key + "State";
   const config = configs[key][id];
   const state = states[stateKey];
-  console.log("update ", state[id]?.value);
+
   config.state = { value: state[id]?.value || "" };
   config.returns = {
     onChange: state[id]?.returns?.onChange || null,
@@ -65,14 +65,13 @@ const update = (configs, states, customLogic, cache) => {
 
 export const statesMirroring = (states, cache) => {
   const { customLogic, SSOTS, configs } = cache.current;
-  firstRender(configs, SSOTS, states, customLogic);
-  /*
+
   if (!cache.current.inputChanged) {
+    firstRender(configs, SSOTS, states, customLogic);
   } else {
     update(configs, states, customLogic, cache);
   }
-*/
-  console.log("scattato mirroring");
+
   if (configs.resets && Object.keys(configs.resets).length === 0) {
     configs.resets.resetAll = () => reset(customLogic, states, cache);
     configs.resets.resetOne = (obj) => singleReset(states, obj);
