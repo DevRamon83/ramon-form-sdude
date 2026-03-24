@@ -72,6 +72,7 @@ export const statesMirroring = (states, cache) => {
     update(configs, states, customLogic, cache);
   }
 */
+  console.log("scattato mirroring");
   if (configs.resets && Object.keys(configs.resets).length === 0) {
     configs.resets.resetAll = () => reset(customLogic, states, cache);
     configs.resets.resetOne = (obj) => singleReset(states, obj);
