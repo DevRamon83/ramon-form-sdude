@@ -83,13 +83,13 @@ export const handlersBinder = (configs, customLogic, states, SSOTS, cache) => {
     }
   };
 
-  const returnsHandler = (func, eventName, setter) => async (e) => {
+  const returnsHandler = (func, eventName, setter) => (e) => {
     const { id, value, type } = e.target;
     const ensureId =
       type === "radio" || type === "checkbox" ? e.target.name : id;
     cache.current.inputChanged = { id: ensureId, type };
 
-    const customResult = await func(value, ensureId);
+    const customResult = func(value, ensureId);
     setter((prev) => ({
       ...prev,
       [ensureId]: {
