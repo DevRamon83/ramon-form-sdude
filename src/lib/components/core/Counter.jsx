@@ -7,7 +7,7 @@ export default function Counter({ label, value, max, charsType }) {
   }
 
   return (
-    <div className="">
+    <div className="ramon__counterContainer">
       <span>{label}</span> <br />
       <span>
         {counter} / {max}

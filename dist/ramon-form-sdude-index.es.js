@@ -1,5 +1,5 @@
 import { j as c, v as be, g as $e, p as Fe, f as Ee } from "./validTypes-BIzwwAsG.js";
-import { useMemo as I, useState as J, useRef as Ne } from "react";
+import { useMemo as I, useState as _, useRef as Ne } from "react";
 const Te = ({ dataField: e }) => {
   const n = e.state || {}, t = e.handlers || {}, { options: s, required: r, type: o, title: i, name: a } = e.config, { value: l } = n, { onChange: u, onBlur: d, onFocus: p, onKeyDown: f } = t, h = u || (() => {
   }), g = d || (() => {
@@ -161,7 +161,7 @@ const Te = ({ dataField: e }) => {
        type: "url",                         // Required: Defines a URL input
        label: "Your Website",               // Optional: UI label
        placeholder: "https://example.com",  // Optional: Input placeholder (example format) ${C}
-      }`, Je = (e) => {
+      }`, _e = (e) => {
   switch (e) {
     case "myTextField":
       return { title: "TEXT INPUT CONFIGURATION", input: "TextInput" };
@@ -194,7 +194,7 @@ const Te = ({ dataField: e }) => {
       return { title: "TIME INPUT CONFIGURATION", input: "TimeInput" };
   }
 }, D = (e, n, t) => {
-  const s = Je(n);
+  const s = _e(n);
   console.groupCollapsed(
     `%c 🚀 SDUDE QUICKSTART: ${s.title} `,
     "background: #2196F3; color: white; font-weight: bold; padding: 2px; border-radius: 2px;"
@@ -218,13 +218,13 @@ const Te = ({ dataField: e }) => {
     `%c${r}`,
     "color: #333; font-family: 'Courier New', monospace; line-height: 1.5; font-size: 12px;"
   ), console.groupEnd();
-}, Qe = () => `
+}, Je = () => `
 ${D(Ue, "myCheckboxGroup", "groups")}
 ${v()}
-`, Ze = () => `
+`, Qe = () => `
 ${D(Be, "myDateField", "fields")}
 ${v()}
-`, _e = () => `
+`, Ze = () => `
 ${D(Me, "myDatetimeField", "fields")}
 ${v()}
 `, en = () => `
@@ -258,9 +258,9 @@ ${v()}
 ${D(Xe, "myUrlField", "fields")}
 ${v()}
 `, Se = {
-  checkbox: Qe,
-  date: Ze,
-  "dateTime-local": _e,
+  checkbox: Je,
+  date: Qe,
+  "dateTime-local": Ze,
   email: en,
   number: nn,
   password: tn,
@@ -468,7 +468,7 @@ function Yt({ dataField: e, isAsync: n, i18n: t }) {
 }
 function fn({ label: e, value: n, max: t, charsType: s }) {
   let r = null;
-  return s ? r = n.trim() === "" ? 0 : n.length : r = n.trim() === "" ? 0 : n.trim().split(/\s+/).length, /* @__PURE__ */ c.jsxs("div", { className: "", children: [
+  return s ? r = n.trim() === "" ? 0 : n.length : r = n.trim() === "" ? 0 : n.trim().split(/\s+/).length, /* @__PURE__ */ c.jsxs("div", { className: "ramon__counterContainer", children: [
     /* @__PURE__ */ c.jsx("span", { children: e }),
     " ",
     /* @__PURE__ */ c.jsx("br", {}),
@@ -530,7 +530,7 @@ function Xt({ dataField: e, isAsync: n, i18n: t }) {
     return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
   }, [e?.state?.value, t]);
 }
-function Jt({ dataField: e, isAsync: n, i18n: t }) {
+function _t({ dataField: e, isAsync: n, i18n: t }) {
   return I(() => {
     const s = /* @__PURE__ */ c.jsx(E, { dataField: e });
     return e ? /* @__PURE__ */ c.jsx(k, { component: s, dataField: e }) : /* @__PURE__ */ c.jsx(w, { isAsync: n });
@@ -659,12 +659,12 @@ const Y = (e) => {
     targetKeys: [],
     originalObjects: []
   }) : (e[n].titles = [], e[n][t] = {});
-}, Q = (e, n, t) => {
+}, J = (e, n, t) => {
   const { element: s, id: r, logicObj: o } = e, i = o.SSOT.length - 1, a = Fn(t, s, n), l = n + "Funcs", u = n + "Indexes";
   qn(a, r, o, l, u, t, i);
 }, An = (e) => e.onChange || e.type === "textarea" || e.type === "radio" || e.type === "checkbox", Oe = (e, n, t, s) => {
   const r = { element: e, id: t, logicObj: n };
-  An(e) && Q(r, "onChange", e.onChange), e.onBlur && Q(r, "onBlur", e.onBlur), e.onFocus && Q(r, "onFocus", e.onFocus), e.onKeyDown && Q(r, "onKeyDown", e.onKeyDown);
+  An(e) && J(r, "onChange", e.onChange), e.onBlur && J(r, "onBlur", e.onBlur), e.onFocus && J(r, "onFocus", e.onFocus), e.onKeyDown && J(r, "onKeyDown", e.onKeyDown);
 }, H = (e, n, t, s, r) => {
   let o = !1;
   const { logicObj: i, id: a, index: l, mandatory: u } = s, d = De(e, u);
@@ -787,7 +787,7 @@ const Y = (e) => {
     s
   ) ? "invalid" : n;
   e.name = o;
-}, Jn = (e, n, t) => {
+}, _n = (e, n, t) => {
   const s = "groupsLogic";
   n[s] || ke(n, s, "groupsConfig");
   const o = e.name, i = n[s];
@@ -802,13 +802,13 @@ const Y = (e) => {
   zn(l), we(i, e, a);
   const u = { logicObj: i, name: o, index: a };
   Xn(u, o, i, t), Re(e.type, i.types, "type", u), u.mandatory = !1, H(e.title, i.titles, "title", u), i.SSOT, Oe(e, i, e.name);
-}, Qn = (e, n) => {
+}, Jn = (e, n) => {
   const t = n.SSOT.length - 1, s = e.min ? ie(e.min, "iso") : null, r = e.max ? ie(e.max, "iso") : null;
   s && !s.isValid && $(n, "min", s.why, t), r && !r.isValid && $(n, "max", r.why, t);
-}, Zn = (e, n) => {
+}, Qn = (e, n) => {
   const t = n.SSOT.length - 1, s = e.min ? de(e.min) : null, r = e.max ? de(e.max) : null;
   s && !s.isValid && $(n, "min", s.why, t), r && !r.isValid && $(n, "max", r.why, t);
-}, _n = (e, n) => {
+}, Zn = (e, n) => {
   const t = n.SSOT.length - 1, s = e.min ? ae(e.min) : null, r = e.max ? ae(e.max) : null;
   e.min && !s && $(n, "min", ue, t), e.max && !r && $(n, "max", ue, t);
 }, et = (e, n) => {
@@ -816,13 +816,13 @@ const Y = (e) => {
   let r = null, o = null;
   switch (s) {
     case "date":
-      Qn(e, n), r = e.min ? e.min : null, o = e.max ? e.max : null;
+      Jn(e, n), r = e.min ? e.min : null, o = e.max ? e.max : null;
       break;
     case "time":
-      _n(e, n), r = e.min ? e.min : null, o = e.max ? e.max : null;
+      Zn(e, n), r = e.min ? e.min : null, o = e.max ? e.max : null;
       break;
     case "datetime-local":
-      Zn(e, n), r = e.min ? e.min : null, o = e.max ? e.max : null;
+      Qn(e, n), r = e.min ? e.min : null, o = e.max ? e.max : null;
       break;
     case "number":
       r = e.min && L(e.min, n, "min"), o = e.max && L(e.max, n, "max");
@@ -898,7 +898,7 @@ const Y = (e) => {
       W(n, t, "fields", s), et(n, t.fieldsLogic);
       break;
     case "groups":
-      Jn(n, t, s), at(r, n, s);
+      _n(n, t, s), at(r, n, s);
       break;
     case "selects":
       W(n, t, "selects", s), tt(n, t.selectsLogic);
@@ -972,7 +972,7 @@ const Y = (e) => {
     }
   };
   return R(r, "title", e.titles[t]), { config: r, state: {}, handlers: {} };
-}, Z = (e, n) => {
+}, Q = (e, n) => {
   const t = {}, s = e.SSOT;
   for (let r = 0; r < s.length; r++) {
     const o = s[r], i = e.types[r];
@@ -987,7 +987,7 @@ const Y = (e) => {
       selects: {},
       textareas: {}
     };
-  const n = {}, t = e.fieldsLogic ? Z(e.fieldsLogic, "field") : {}, s = e.groupsLogic ? Z(e.groupsLogic, "group") : {}, r = e.selectsLogic ? Z(e.selectsLogic, "select") : {}, o = e.textareasLogic ? Z(e.textareasLogic, "textarea") : {};
+  const n = {}, t = e.fieldsLogic ? Q(e.fieldsLogic, "field") : {}, s = e.groupsLogic ? Q(e.groupsLogic, "group") : {}, r = e.selectsLogic ? Q(e.selectsLogic, "select") : {}, o = e.textareasLogic ? Q(e.textareasLogic, "textarea") : {};
   return {
     resets: n,
     fields: t,
@@ -995,13 +995,13 @@ const Y = (e) => {
     selects: r,
     textareas: o
   };
-}, _ = (e, n, t, s) => {
+}, Z = (e, n, t, s) => {
   n.returns || (n.returns = {}), e && (n.value = t), n.returns[s] = null;
 }, mt = (e, n) => {
   const t = {}, { SSOT: s } = e;
   for (let r = 0; r < s.length; r++) {
     const o = s[r];
-    t[o] = {}, _(!0, t[o], n, "onChange"), _(!1, t[o], n, "onBlur"), _(!1, t[o], n, "onFocus"), _(!1, t[o], n, "onKeyDown");
+    t[o] = {}, Z(!0, t[o], n, "onChange"), Z(!1, t[o], n, "onBlur"), Z(!1, t[o], n, "onFocus"), Z(!1, t[o], n, "onKeyDown");
   }
   return t;
 }, gt = (e, n) => {
@@ -1038,13 +1038,13 @@ const Y = (e) => {
   const s = {};
   return e ? n === "groups" ? xt(e, t) : mt(e, t) : s;
 }, bt = (e) => {
-  const { fieldsLogic: n, groupsLogic: t, selectsLogic: s, textareasLogic: r } = e || {}, o = "", [i, a] = J(
+  const { fieldsLogic: n, groupsLogic: t, selectsLogic: s, textareasLogic: r } = e || {}, o = "", [i, a] = _(
     () => U(n, "fields", o)
-  ), [l, u] = J(
+  ), [l, u] = _(
     () => U(t, "groups", o)
-  ), [d, p] = J(
+  ), [d, p] = _(
     () => U(s, "selects", o)
-  ), [f, h] = J(
+  ), [f, h] = _(
     () => U(r, "textareas", o)
   );
   return {
@@ -1257,7 +1257,7 @@ const Y = (e) => {
   te(d, l, u);
   const p = e.textareas, f = n.textareas, h = Object.keys(p);
   te(h, p, f);
-}, Qt = (e) => {
+}, Jt = (e) => {
   const { configArray: n, isAsync: t, i18n: s } = e, r = Ne({
     SSOTS: null,
     customLogic: null,
@@ -1282,7 +1282,7 @@ const Y = (e) => {
     r.current.SSOTS,
     r
   ), r.current.bound = !0, r.current.i18nPrev = s), r.current.bound && qt(a, r), r.current.configs || {};
-}, Zt = "0.1.1";
+}, Qt = "0.1.1";
 export {
   Bt as CheckboxInput,
   Mt as DateInput,
@@ -1295,8 +1295,8 @@ export {
   Yt as TelInput,
   zt as TextInput,
   Wt as TextareaInput,
-  Jt as TimeInput,
+  _t as TimeInput,
   Xt as UrlInput,
-  Qt as useRamonForm,
-  Zt as version
+  Jt as useRamonForm,
+  Qt as version
 };
